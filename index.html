@@ -6,346 +6,742 @@
   <title>군산 단합대회 설명회</title>
   <meta name="description" content="소규모 단합대회 참여자를 위한 1박 2일 행사 안내">
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Pretendard Fonts -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  
+
   <!-- Hero Section -->
   <header class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <span class="hero-label">군산휴양소 이용 소규모 단합대회</span>
-      <h1 class="hero-title">군산 현대적인 여행지, 자연과 공존하는 아름다움</h1>
-      <div class="hero-meta">
-        <span class="badge">1박 2일</span>
-        <span class="badge">군산</span>
+    
+    <div class="container hero-container">
+      <div class="hero-top-bar">
+        <span class="hero-meta-title">군산 단합대회 설명회</span>
+      </div>
+      
+      <div class="hero-content">
+        <div class="hero-badge-wrapper">
+          <span class="hero-badge">소규모 단합대회</span>
+        </div>
+        <h1 class="hero-title">현대적인 여행지, 군산</h1>
+        <p class="hero-subtitle">자연과 공존하는 아름다움</p>
+        
+        <div class="hero-meta-pills">
+          <span class="meta-pill">
+            <svg class="icon-pill" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            1박 2일
+          </span>
+          <span class="meta-pill">
+            <svg class="icon-pill" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            군산
+          </span>
+        </div>
+      </div>
+      
+      <!-- Quick Navigation Bar -->
+      <div class="index-bar">
+        <a href="#schedule" class="index-card">
+          <div class="index-card-content">
+            <div class="index-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="index-text-box">
+              <span class="index-title">일정</span>
+              <span class="index-desc">1박 2일 상세 일정 안내</span>
+            </div>
+          </div>
+          <svg class="index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        
+        <a href="#transport" class="index-card">
+          <div class="index-card-content">
+            <div class="index-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+            </div>
+            <div class="index-text-box">
+              <span class="index-title">이동현황</span>
+              <span class="index-desc">이동수단 및 소요시간</span>
+            </div>
+          </div>
+          <svg class="index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        
+        <a href="#budget" class="index-card">
+          <div class="index-card-content">
+            <div class="index-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+              </svg>
+            </div>
+            <div class="index-text-box">
+              <span class="index-title">경비</span>
+              <span class="index-desc">경비 정산 및 예산 안내</span>
+            </div>
+          </div>
+          <svg class="index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        
+        <a href="#precautions" class="index-card">
+          <div class="index-card-content">
+            <div class="index-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+            </div>
+            <div class="index-text-box">
+              <span class="index-title">주의사항</span>
+              <span class="index-desc">안전 수칙 및 유의사항</span>
+            </div>
+          </div>
+          <svg class="index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Index / Navigation -->
-    <section class="section index-section container">
-      <div class="index-grid">
-        <a href="#schedule" class="index-card">
-          <span class="index-num">01</span>
-          <span class="index-text">일정</span>
-        </a>
-        <a href="#vehicle" class="index-card">
-          <span class="index-num">02</span>
-          <span class="index-text">이동현황</span>
-        </a>
-        <a href="#expenses" class="index-card">
-          <span class="index-num">03</span>
-          <span class="index-text">경비</span>
-        </a>
-        <a href="#attention" class="index-card">
-          <span class="index-num">04</span>
-          <span class="index-text">주의사항</span>
-        </a>
+  <!-- Main Content -->
+  <main class="main-content-wrapper">
+    
+    <!-- Section: Schedule -->
+    <section id="schedule" class="section container">
+      <div class="section-header-title">
+        <svg class="section-title-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        <h2>일정 안내</h2>
       </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule" class="section container bg-surface card">
-      <h2 class="section-title">01. 일정 (Schedule)</h2>
       
-      <div class="timeline-container">
-        <!-- Day 1 -->
-        <div class="day-column">
-          <h3 class="day-title">1일차 일정</h3>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <span class="time">09:00</span>
-              <div class="timeline-content">
-                <h4>출발</h4>
-                <p>회사 또는 조별 집결지에서 출발</p>
+      <div class="schedule-grid">
+        <!-- Day 1 Schedule -->
+        <div class="schedule-column-card">
+          <h3 class="schedule-day-title day-1">1일차 일정</h3>
+          
+          <div class="timeline-list">
+            <div class="timeline-node">
+              <span class="timeline-time">09:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">출발</span>
+                <span class="timeline-memo">회사 또는 조별 집결지에서 출발</span>
               </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">12:00</span>
-              <div class="timeline-content">
-                <h4>숙소 도착</h4>
-                <p>체크인 및 짐 정리</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">13:00</span>
-              <div class="timeline-content">
-                <h4>점심식사 <span class="tag">회사 지원</span></h4>
-                <p>회사 지원 식사 일정</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">14:00</span>
-              <div class="timeline-content">
-                <h4>자유활동</h4>
-                <p>조별 일정에 따라 자유활동 진행</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">18:00</span>
-              <div class="timeline-content">
-                <h4>저녁식사·회식 <span class="tag">회사 지원</span></h4>
-                <p>회사 지원 저녁식사 및 회식</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">21:00</span>
-              <div class="timeline-content">
-                <h4>취침</h4>
-                <p>과도한 음주 자제, 안전 및 컨디션 관리</p>
-              </div>
-            </li>
-          </ul>
-          <div class="alert alert-info">
-            <strong>1일차 보고사항:</strong> 출발 전 및 숙소 도착 후 담당자에게 이상무 여부를 연락합니다.
-          </div>
-        </div>
-
-        <!-- Day 2 -->
-        <div class="day-column mt-mobile">
-          <h3 class="day-title">2일차 일정</h3>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <span class="time">08:00</span>
-              <div class="timeline-content">
-                <h4>기상</h4>
-                <p>숙소 정리 및 청소</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">09:00</span>
-              <div class="timeline-content">
-                <h4>조식 <span class="tag">회사 지원</span></h4>
-                <p>회사 지원 조식</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">10:00</span>
-              <div class="timeline-content">
-                <h4>자유활동</h4>
-                <p>복귀 전 자유활동 진행</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">12:00</span>
-              <div class="timeline-content">
-                <h4>점심식사 <span class="tag">회사 지원</span></h4>
-                <p>회사 지원 점심식사</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="time">13:00</span>
-              <div class="timeline-content">
-                <h4>복귀 출발</h4>
-                <p>체크아웃 후 복귀 출발 (체크아웃 유의)</p>
-              </div>
-            </li>
-          </ul>
-          <div class="alert alert-info">
-            <strong>2일차 보고사항:</strong> 기상 후 및 복귀 후 담당자에게 이상무 여부를 연락합니다.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vehicle Section -->
-    <section id="vehicle" class="section container bg-surface card mt-section">
-      <h2 class="section-title">02. 이동현황 및 경비정산 (Vehicle)</h2>
-      
-      <div class="stat-grid">
-        <div class="stat-card">
-          <span class="stat-label">이동수단</span>
-          <span class="stat-value">개인 차량</span>
-          <span class="stat-desc">조별 직원 차량 이용</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">이동거리 (편도)</span>
-          <span class="stat-value">210 km</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">소요시간 (편도)</span>
-          <span class="stat-value">약 3시간</span>
-        </div>
-      </div>
-
-      <div class="settlement-info mt-block">
-        <h3>교통비 정산 프로세스</h3>
-        <ul class="checklist">
-          <li><strong>통행료 지급 (현금 선지급):</strong> 2대 왕복 기준 50,000원 지급 완료</li>
-          <li><strong>유류비 지급 (추후 사후 정산):</strong> 셀프서비스로 신청 필요</li>
-        </ul>
-        
-        <div class="alert alert-warning mt-block">
-          <strong>🚨 유류비 신청 시 필수 주의사항</strong><br>
-          신청 제목은 반드시 아래와 같이 표기하여 신청해야 합니다.<br>
-          <span class="highlight-text">차량운행일지(한마음 조명-1,2)</span>
-        </div>
-        <p class="form-hint mt-sm">※ 작성항목 참고: 행선지 [군산], 업무내용 [차량운행일지(한마음 조명-1,2)]</p>
-      </div>
-    </section>
-
-    <!-- Expenses Section -->
-    <section id="expenses" class="section container bg-surface card mt-section">
-      <h2 class="section-title">03. 조별 경비 배정 (Expenses)</h2>
-      
-      <div class="budget-summary">
-        <h3>8명 기준 예산 배정내역</h3>
-        <table class="budget-table">
-          <tbody>
-            <tr>
-              <td>식대</td>
-              <td class="amount">864,000원</td>
-            </tr>
-            <tr>
-              <td>통행료</td>
-              <td class="amount">50,000원</td>
-            </tr>
-            <tr>
-              <td>예비비</td>
-              <td class="amount">80,000원</td>
-            </tr>
-            <tr class="total-row">
-              <td>합계</td>
-              <td class="amount">994,000원</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="tip-card mt-block">
-          <strong>💡 1인 비용 산정 로직:</strong> 식대 108,000원 + 예비비 10,000원 = 1인 총액 118,000원
-        </div>
-      </div>
-
-      <div class="rules-container mt-block">
-        <h3>경비 지출 필수 유의사항</h3>
-        <div class="rule-card">
-          <span class="rule-badge">Rule 01</span>
-          <h4>현금영수증 필수</h4>
-          <p>경비 사용 시 반드시 사업자 등록번호로 현금영수증을 증빙처리하여야 합니다.</p>
-        </div>
-        <div class="rule-card">
-          <span class="rule-badge">Rule 02</span>
-          <h4>증빙 누락 불가</h4>
-          <p>현금영수증 증빙이 없을 시 해당 비용 처리는 절대 불가합니다.</p>
-        </div>
-        <div class="rule-card">
-          <span class="rule-badge">Rule 03</span>
-          <h4>잔여금 반납</h4>
-          <p>사용 후 남은 잔여 경비는 회사로 반납하여야 합니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Attention Section -->
-    <section id="attention" class="section container mt-section">
-      <h2 class="section-title">04. 주의사항 (Attention)</h2>
-      
-      <div class="attention-grid">
-        <div class="attention-card bg-surface card">
-          <h3>✅ 안전 수칙 (Must-DOs)</h3>
-          <ul class="custom-list">
-            <li><strong>시간 엄수:</strong> 출발시간 09:00 AM 및 조별 집결 시간을 철저히 지켜주세요.</li>
-            <li><strong>단체 행동:</strong> 개인 개별활동을 금지하며, 조원 전원 참석 활동으로 시행합니다.</li>
-            <li><strong>안전 제일:</strong> 과도한 음주 및 음주운전은 절대 금지됩니다.</li>
-            <li><strong>사고 예방:</strong> 조별 활동 시 안전사고에 각별히 주의하세요.</li>
-          </ul>
-        </div>
-        
-        <div class="attention-card bg-surface card">
-          <h3>🧽 숙소 퇴실 에티켓</h3>
-          <ul class="custom-list">
-            <li>숙소 요·베개 커버 및 수건은 정리하여 돌려놓습니다.</li>
-            <li>퇴실 시 내부 청소 및 쓰레기 분리수거를 시행합니다.</li>
-            <li>음식물 쓰레기는 숙소 앞 분리수거장 및 전용 음식물 쓰레기함에 버립니다.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="emergency-contact bg-surface card mt-block">
-        <h3>📞 비상 연락망 체계</h3>
-        <p class="subtitle">특이사항 발생 시 즉각 통보 바랍니다.</p>
-        
-        <div class="contact-situations">
-          <span class="tag">조별 집결 후 출발 시</span>
-          <span class="tag">숙소 도착 시</span>
-          <span class="tag">기상 및 이상 점검 시</span>
-        </div>
-
-        <div class="contact-grid mt-block">
-          <a href="tel:032-570-7713" class="contact-box">
-            <div class="contact-icon">🏢</div>
-            <div class="contact-info">
-              <span class="contact-title">업무시간 중</span>
-              <span class="contact-name">인사배치팀 통보<br>(032-570-7713)</span>
             </div>
-          </a>
-          <a href="tel:032-570-7713" class="contact-box">
-            <div class="contact-icon">🚨</div>
-            <div class="contact-info">
-              <span class="contact-title">업무시간 외</span>
-              <span class="contact-name">종합통제실 통보<br>(032-570-7713)</span>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">12:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">숙소 도착</span>
+                <span class="timeline-memo">체크인 및 짐 정리</span>
+              </div>
             </div>
-          </a>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">13:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">
+                  점심식사
+                  <span class="support-tag blue">회사 지원</span>
+                </span>
+                <span class="timeline-memo">조별 식사 및 이동</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">14:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">자유활동</span>
+                <span class="timeline-memo">조별 일정에 따라 자유활동 진행</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">18:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">
+                  저녁식사 · 회식
+                  <span class="support-tag blue">회사 지원</span>
+                </span>
+                <span class="timeline-memo">조별 단합 회식</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">21:00</span>
+              <div class="timeline-marker blue"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">취침</span>
+                <span class="timeline-memo">과도한 음주 자제, 안전 및 컨디션 관리</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column-alert-box blue">
+            <svg class="alert-bell blue" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+            </svg>
+            <p><strong>1일차 연락사항:</strong> 출발 전 및 숙소 도착 후 담당자에게 이상무 여부를 연락합니다.</p>
+          </div>
+        </div>
+        
+        <!-- Day 2 Schedule -->
+        <div class="schedule-column-card">
+          <h3 class="schedule-day-title day-2">2일차 일정</h3>
+          
+          <div class="timeline-list">
+            <div class="timeline-node">
+              <span class="timeline-time">08:00</span>
+              <div class="timeline-marker teal"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">기상</span>
+                <span class="timeline-memo">숙소 정리 및 청소</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">09:00</span>
+              <div class="timeline-marker teal"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">
+                  조식
+                  <span class="support-tag teal">회사 지원</span>
+                </span>
+                <span class="timeline-memo">회사 지원 조식</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">10:00</span>
+              <div class="timeline-marker teal"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">자유활동</span>
+                <span class="timeline-memo">복귀 전 자유활동 진행</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">12:00</span>
+              <div class="timeline-marker teal"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">
+                  점심식사
+                  <span class="support-tag teal">회사 지원</span>
+                </span>
+                <span class="timeline-memo">회사 지원 점심식사</span>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <span class="timeline-time">13:00</span>
+              <div class="timeline-marker teal"></div>
+              <div class="timeline-details">
+                <span class="timeline-action">숙소정리 후 복귀 출발</span>
+                <span class="timeline-memo">체크아웃 후 복귀 출발 (체크아웃 유의)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="column-alert-box teal">
+            <svg class="alert-bell teal" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+            </svg>
+            <p><strong>2일차 연락사항:</strong> 기상 후 및 복귀 후 담당자에게 이상무 여부를 연락합니다.</p>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section container bg-surface card mt-section mb-section">
-      <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">단합대회는 몇 박 며칠인가요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>1박 2일 행사입니다. 1일차 09:00 출발, 2일차 13:00 복귀 출발 일정으로 안내되어 있습니다.</p>
+    
+    <!-- Section: Transport & Budget -->
+    <section id="transport-budget-section" class="section container">
+      <div class="two-column-layout">
+        
+        <!-- Left: Transport -->
+        <div id="transport" class="content-panel">
+          <div class="section-header-title text-black">
+            <svg class="section-title-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            <h2>이동현황 및 경비정산</h2>
+          </div>
+          
+          <div class="transport-summary-row">
+            <div class="transport-stat-card">
+              <div class="stat-icon-wrapper blue">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124l-.318-5.085a3 3 0 0 0-2.245-2.733l-2.45-.612a3 3 0 0 0-1.213 0l-2.45.612a3 3 0 0 0-2.245 2.733l-.318 5.085a1.125 1.125 0 0 1-1.09 1.124H3"></path>
+                </svg>
+              </div>
+              <span class="stat-lbl">이동수단</span>
+              <span class="stat-val blue-text">개인 차량</span>
+              <span class="stat-sub">조별 차량 자가 이용</span>
+            </div>
+            
+            <div class="transport-stat-card">
+              <div class="stat-icon-wrapper purple">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <span class="stat-lbl">이동거리 (편도)</span>
+              <span class="stat-val">210 <span class="unit">km</span></span>
+            </div>
+            
+            <div class="transport-stat-card">
+              <div class="stat-icon-wrapper sky">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <span class="stat-lbl">소요시간 (편도)</span>
+              <span class="stat-val">약 3시간</span>
+            </div>
+          </div>
+          
+          <div class="white-card panel-subcard">
+            <h4 class="card-subtitle-with-icon">
+              <svg class="sub-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+              교통비 정산 프로세스
+            </h4>
+            <ul class="process-checklist">
+              <li>
+                <div class="check-circle">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span><strong>통행료 지급 (현금 선지급) :</strong> 2대 왕복 기준 50,000원 지급 완료</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span><strong>유류비 지급 (추후 사후 정산) :</strong> 셀프서비스로 신청 필요</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="warning-border-card">
+            <div class="warning-title-row">
+              <span class="warning-circle-icon">!</span>
+              <h5>유류비 신청 시 필수 주의사항</h5>
+            </div>
+            <p class="warning-subtext">신청 제목은 반드시 아래와 같이 표기하여 신청해야 합니다.</p>
+            <div class="warning-highlight-input">
+              <span>차량운행일지(한마음 조명-1,2)</span>
+            </div>
+            <span class="warning-hint">※ 작성항목 참고: 행선지 [군산], 업무내용 [차량운행일지(한마음 조명-1,2)]</span>
           </div>
         </div>
-        <div class="accordion-item">
-          <button class="accordion-header">이동수단은 무엇인가요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>조별 직원 차량 또는 개인 차량을 이용합니다. 편도 기준 이동거리는 210km, 소요시간은 약 3시간입니다.</p>
+        
+        <!-- Right: Budget -->
+        <div id="budget" class="content-panel">
+          <div class="section-header-title text-black">
+            <svg class="section-title-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            <h2>조별 경비 배정</h2>
           </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">통행료와 유류비는 어떻게 정산하나요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>통행료는 2대 왕복 기준 50,000원이 현금 선지급되며, 유류비는 셀프서비스로 사후 정산 신청합니다.</p>
+          <span class="panel-subtitle-caption">8명 기준 예산 배정내역</span>
+          
+          <div class="white-card budget-table-card">
+            <table class="budget-data-table">
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="table-item-name">
+                      <span class="table-emoji">🍽️</span> 식대
+                    </span>
+                  </td>
+                  <td class="table-item-val">864,000원</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="table-item-name">
+                      <span class="table-emoji">🛣️</span> 통행료
+                    </span>
+                  </td>
+                  <td class="table-item-val">50,000원</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="table-item-name">
+                      <span class="table-emoji">🪙</span> 예비비
+                    </span>
+                  </td>
+                  <td class="table-item-val">80,000원</td>
+                </tr>
+                <tr class="budget-total-row">
+                  <td>
+                    <span class="table-item-name">
+                      <span class="table-emoji">📈</span> 합계
+                    </span>
+                  </td>
+                  <td class="table-item-val total-blue">994,000원</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">유류비 정산 신청 제목은 어떻게 작성하나요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>신청 제목은 반드시 <strong>차량운행일지(한마음 조명-1,2)</strong>로 표기합니다.</p>
+          
+          <div class="logic-bar">
+            <div class="logic-icon-box">
+              <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            <div class="logic-text">
+              <strong>1인 비용 산정 로직</strong>
+              <span>식대 108,000원 + 예비비 10,000원 = 1인 총액 118,000원</span>
+            </div>
           </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">경비 사용 시 반드시 챙겨야 할 증빙은 무엇인가요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>사업자 등록번호로 발급받은 현금영수증 증빙이 필수입니다. 증빙이 없으면 비용 처리가 불가합니다.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">숙소 퇴실 시 해야 할 일은 무엇인가요? <span class="icon">+</span></button>
-          <div class="accordion-content">
-            <p>침구와 수건을 정리하고, 내부 청소 및 쓰레기 분리수거를 실시하며, 음식물 쓰레기는 지정된 장소에 버립니다.</p>
+          
+          <div class="rules-grid-row">
+            <div class="rule-small-card">
+              <div class="rule-card-header">
+                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <div class="rule-tag-and-title">
+                  <span class="rule-tag">Rule 01</span>
+                  <h6>현금영수증 필수</h6>
+                </div>
+              </div>
+              <p>경비 사용 시 반드시 사업자 등록번호로 현금영수증을 증빙처리하여야 합니다.</p>
+            </div>
+            
+            <div class="rule-small-card">
+              <div class="rule-card-header">
+                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+                <div class="rule-tag-and-title">
+                  <span class="rule-tag">Rule 02</span>
+                  <h6>증빙 누락 불가</h6>
+                </div>
+              </div>
+              <p>현금영수증 증빙이 없을 시 해당 비용 처리는 절대 불가합니다.</p>
+            </div>
+            
+            <div class="rule-small-card">
+              <div class="rule-card-header">
+                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
+                </svg>
+                <div class="rule-tag-and-title">
+                  <span class="rule-tag">Rule 03</span>
+                  <h6>잔여금 반납</h6>
+                </div>
+              </div>
+              <p>사용 후 남은 잔여 경비는 회사로 반납하여야 합니다.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
+    
+    <!-- Section: Precautions -->
+    <section id="precautions" class="section container">
+      <div class="section-header-title text-black">
+        <svg class="section-title-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        <h2>주의사항</h2>
+      </div>
+      
+      <div class="attention-two-cards">
+        <div class="attention-detail-card font-blue">
+          <div class="watermark-bg shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h4>
+            <svg class="attn-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            안전 수칙 (Must-Dos)
+          </h4>
+          <ul class="attn-list bullet-blue">
+            <li>
+              <div class="checkmark-bubble blue">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span><strong>시간 엄수:</strong> 출발시간 09:00 AM 및 조별 집결 시간을 철저히 지켜주세요.</span>
+            </li>
+            <li>
+              <div class="checkmark-bubble blue">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span><strong>단체 행동:</strong> 개인 개별행동을 금지하며, 조원 전원 참석 활동으로 시행합니다.</span>
+            </li>
+            <li>
+              <div class="checkmark-bubble blue">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span><strong>안전 제일:</strong> 과도한 음주 및 음주운전은 절대 금지됩니다.</span>
+            </li>
+            <li>
+              <div class="checkmark-bubble blue">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span><strong>사고 예방:</strong> 조별 활동 시 안전사고에 각별히 주의하세요.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="attention-detail-card font-teal">
+          <div class="watermark-bg bed">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </div>
+          <h4>
+            <svg class="attn-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            숙소 퇴실 에티켓
+          </h4>
+          <ul class="attn-list bullet-teal">
+            <li>
+              <div class="checkmark-bubble teal">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span>숙소 요·베개 커버 및 수건은 정리하여 돌려놓습니다.</span>
+            </li>
+            <li>
+              <div class="checkmark-bubble teal">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span>퇴실 시 내부 청소 및 쓰레기 분리수거를 시행합니다.</span>
+            </li>
+            <li>
+              <div class="checkmark-bubble teal">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span>음식물 쓰레기는 숙소 앞 분리수거장 및 전용 음식물 쓰레기통에 버려둡니다.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Section: Emergency Call System -->
+      <div class="emergency-contact-box">
+        <div class="emergency-header">
+          <div class="emergency-title-left">
+            <svg class="emergency-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            <div class="emergency-header-text">
+              <h3>비상 연락망 체계</h3>
+              <p>특이사항 발생 시 즉각 통보 바랍니다.</p>
+            </div>
+          </div>
+          
+          <div class="emergency-badge-container">
+            <span class="emergency-situ-badge">조별 집결 후 출발 시</span>
+            <span class="emergency-situ-badge">숙소 도착 시</span>
+            <span class="emergency-situ-badge">기상 및 이상 점검 시</span>
+          </div>
+        </div>
+        
+        <div class="emergency-grid-cards">
+          <!-- Card: Office Hours -->
+          <div class="emergency-card">
+            <div class="emergency-card-main">
+              <div class="emergency-call-icon blue">
+                <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="emergency-card-info">
+                <span class="emergency-period">업무시간 중</span>
+                <span class="emergency-dept blue-text">인사배치팀 통보</span>
+                <span class="emergency-number">032-570-7713</span>
+              </div>
+            </div>
+            
+            <a href="tel:032-570-7713" class="round-call-button blue">
+              <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Card: Off Hours -->
+          <div class="emergency-card">
+            <div class="emergency-card-main">
+              <div class="emergency-call-icon teal">
+                <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="emergency-card-info">
+                <span class="emergency-period">업무시간 외</span>
+                <span class="emergency-dept teal-text">종합통제실 통보</span>
+                <span class="emergency-number">032-570-7713</span>
+              </div>
+            </div>
+            
+            <a href="tel:032-570-7713" class="round-call-button teal">
+              <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: FAQ -->
+    <section id="faq" class="section container">
+      <div class="section-header-title text-black">
+        <svg class="section-title-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <h2>자주 묻는 질문 (FAQ)</h2>
+      </div>
+      
+      <div class="faq-two-columns">
+        <!-- Column 1 -->
+        <div class="faq-col">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 우천 시 일정은 어떻게 되나요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>기상 악화 시에는 야외 자유활동 대신 군산의 다양한 근대문화역사관 및 실내 미술관 관람, 실내 레크리에이션 등으로 대체하여 진행됩니다.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 자유활동은 어디서 진행되나요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>조별로 군산 시간여행마을(근대화거리), 철길마을, 은파호수공원 등 다양한 관광명소에서 자유롭게 조별 미션 및 힐링 활동을 진행하시면 됩니다.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 경비 정산은 어떻게 진행되나요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>단합대회 종료 후 3일 이내에 현금영수증(사업자등록번호 증빙) 및 유류비 정산서류를 취합하여 인사배치팀으로 제출해주시면 됩니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Column 2 -->
+        <div class="faq-col">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 개인 차량 외 다른 이동수단이 가능한가요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>기본적으로 조별 차량 이용을 권장하며, 불가피하게 대중교통을 이용해야 하는 경우 사전에 인사배치팀과 협의하여 조율해주시기 바랍니다.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 숙소는 몇 인실인가요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>숙소는 조원들의 편안한 휴식을 위해 3~4인 기준의 넓은 객실(또는 독채)로 배정되어 있으며, 성별 및 조별 인원을 고려하여 배치됩니다.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 비상 상황 발생 시 어떻게 해야 하나요?</span>
+              <svg class="header-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>즉각 조장에게 알린 후, 업무시간 중에는 인사배치팀(032-570-7713)으로, 업무시간 외에는 종합통제실(032-570-7713)로 즉시 연락하여 지시를 따르시기 바랍니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container text-center">
-      <h3>즐거운 단합대회가 되길 바랍니다!</h3>
-      <p>안전하고 건강하게 즐기고 돌아오세요😊<br>참여자 여러분을 응원합니다!</p>
+    <div class="footer-bg"></div>
+    <div class="footer-overlay"></div>
+    <div class="container footer-content">
+      <h3>즐거운 단합대회가 되길 바랍니다! ☀️</h3>
     </div>
   </footer>
 
