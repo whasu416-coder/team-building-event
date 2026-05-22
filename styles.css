@@ -83,57 +83,117 @@ h1, h2, h3, h4 {
 /* Hero Section */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--c-deep-blue) 0%, var(--c-ocean) 100%);
-  color: white;
-  padding: 180px 0 120px;
-  text-align: center;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
   overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('./hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at center, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+  background: linear-gradient(135deg, rgba(15,23,42,0.35) 0%, rgba(15,23,42,0.15) 100%);
+  z-index: 1;
 }
 
-.hero-content {
+/* Decorative orange diagonal lines */
+.hero-deco {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-deco-1 {
+  width: 220px;
+  height: 600px;
+  right: 10%;
+  top: -80px;
+  background: linear-gradient(145deg, rgba(249,115,22,0.55) 0%, rgba(249,115,22,0) 100%);
+  transform: rotate(-25deg);
+  border-radius: 8px;
+}
+
+.hero-deco-2 {
+  width: 120px;
+  height: 500px;
+  right: 16%;
+  top: -40px;
+  background: linear-gradient(145deg, rgba(249,115,22,0.35) 0%, rgba(249,115,22,0) 100%);
+  transform: rotate(-25deg);
+  border-radius: 8px;
+}
+
+.hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Frosted Glass Card */
+.hero-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  padding: 48px 56px;
+  max-width: 620px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--c-deep-blue);
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--c-text-main);
+  margin-bottom: var(--space-lg);
 }
 
 .hero-label {
   display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  padding: 8px 20px;
+  border: 2.5px solid var(--c-orange);
+  border-radius: 6px;
   letter-spacing: 1px;
-  color: var(--c-orange);
-  margin-bottom: var(--space-sm);
 }
 
-.hero-title {
-  font-size: 5.5rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
-  color: white;
-  margin-bottom: var(--space-md);
-  text-shadow: 0 8px 32px rgba(0,0,0,0.25);
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  opacity: 0.9;
-  margin-bottom: var(--space-lg);
+.hero-meta {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: 8px;
 }
 
 .badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.875rem;
   backdrop-filter: blur(4px);
-  margin: 0 4px;
 }
 
 /* Index Navigation */
@@ -497,8 +557,13 @@ h1, h2, h3, h4 {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .hero { padding: 140px 0 80px; }
-  .hero-title { font-size: 3.2rem; }
+  .hero { min-height: 70vh; }
+  .hero-glass { padding: 32px 24px; max-width: 100%; }
+  .hero-title { font-size: 2.4rem; }
+  .hero-subtitle { font-size: 1.15rem; }
+  .hero-label { font-size: 0.95rem; }
+  .hero-deco-1 { width: 140px; height: 400px; right: -5%; }
+  .hero-deco-2 { width: 80px; height: 320px; right: 2%; }
   
   .index-grid {
     grid-template-columns: 1fr 1fr;
