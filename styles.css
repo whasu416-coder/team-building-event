@@ -85,7 +85,7 @@ h1, h2, h3, h4 {
   position: relative;
   background: linear-gradient(135deg, var(--c-deep-blue) 0%, var(--c-ocean) 100%);
   color: white;
-  padding: 120px 0 80px;
+  padding: 180px 0 120px;
   text-align: center;
   overflow: hidden;
 }
@@ -111,9 +111,13 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 5.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
   color: white;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  text-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
 .hero-subtitle {
@@ -493,7 +497,8 @@ h1, h2, h3, h4 {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.25rem; }
+  .hero { padding: 140px 0 80px; }
+  .hero-title { font-size: 3.2rem; }
   
   .index-grid {
     grid-template-columns: 1fr 1fr;
