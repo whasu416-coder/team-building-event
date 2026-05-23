@@ -1901,6 +1901,15 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+.tour-action .btn-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+}
+
 /* Tour grid responsive settings */
 @media (max-width: 992px) {
   .tour-grid {
