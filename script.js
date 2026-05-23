@@ -111,3 +111,40 @@ function createDefaultMarker(map, latLng) {
     window.open("https://map.kakao.com/?urlX=435165.0000030022&urlY=684921.9999999995&urlLevel=3&itemId=26707549&q=%EA%B5%B0%EC%82%B0%EC%88%98%EC%86%A1%EC%A0%9C%EC%9D%BC%EC%98%A4%ED%88%AC%EA%B7%B8%EB%9E%80%EB%8D%B01%EB%8B%A8%EC%A7%80%EC%95%84%ED%8C%8C%ED%8A%B8%20306%EB%8F%99&srcId=26707549&map_type=TYPE_MAP", "_blank", "noopener,noreferrer");
   });
 }
+
+// 편의시설 그림지도 상호작용 (SVG 마커 <-> HTML 카드 연동)
+document.addEventListener('DOMContentLoaded', () => {
+  const facilityItems = document.querySelectorAll('[data-facility-id]');
+  
+  if (facilityItems.length === 0) return;
+
+  facilityItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const facilityId = item.getAttribute('data-facility-id');
+      if (!facilityId || facilityId === 'lodging') return;
+
+      // 모든 마커와 카드의 active 상태 해제
+      facilityItems.forEach(el => el.classList.remove('is-active'));
+
+      // 클릭한 facility-id와 동일한 모든 요소(마커, 카드)에 active 상태 부여
+      const targets = document.querySelectorAll(`[data-facility-id="${facilityId}"]`);
+      targets.forEach(target => {
+        target.classList.add('is-active');
+        
+        // 만약 선택된 요소가 카드라면 스크롤 조정 (모바일 환경 등 고려)
+        if (target.classList.contains('facility-card') && window.innerWidth <= 960) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+
+    // 엔터키 접근성 지원
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+  });
+});
+
