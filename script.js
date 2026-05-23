@@ -17,30 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const elementPosition = elementRect - bodyRect;
         const offsetPosition = elementPosition - offset;
 
+        // Respect reduced motion settings
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth'
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
         });
-      }
-    });
-  });
-
-  // Accordion for FAQ
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-  
-  accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all accordions
-      document.querySelectorAll('.accordion-item').forEach(accItem => {
-        accItem.classList.remove('active');
-      });
-      
-      // If it wasn't active, open it
-      if (!isActive) {
-        item.classList.add('active');
       }
     });
   });

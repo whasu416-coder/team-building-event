@@ -1,3 +1,353 @@
+/* ============================================
+   PREMIUM HERO - Blue Hour Design System
+   Based on deep-research-report.md
+   ============================================ */
+
+/* Hero Design Tokens */
+:root {
+  --hero-ink-strong: #f7fafd;
+  --hero-ink-muted: #dce7f0;
+  --hero-bg-deep: #081a2d;
+  --hero-bg-mid: #10304f;
+  --hero-bg-soft: #557596;
+  --hero-accent: #d2a66a;
+  --hero-surface-glass: rgba(255, 255, 255, 0.10);
+  --hero-surface-glass-border: rgba(255, 255, 255, 0.18);
+  --hero-shadow-btn: 0 10px 28px rgba(6, 18, 34, 0.18);
+  --hero-radius-pill: 999px;
+  --hero-container-max: 1280px;
+  --hero-text-max: 560px;
+}
+
+/* Hero Section */
+.premium-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(560px, 68svh, 760px);
+  overflow: clip;
+  background: var(--hero-bg-deep);
+}
+
+.premium-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.premium-hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 52%;
+  filter: saturate(.94) contrast(1.03) brightness(.92);
+  transform: scale(1.01);
+  transition: transform 1.2s ease-out;
+}
+
+.premium-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 26, 45, .82) 0%,
+      rgba(8, 26, 45, .60) 34%,
+      rgba(8, 26, 45, .22) 58%,
+      rgba(8, 26, 45, .08) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4, 11, 19, .10) 0%,
+      rgba(4, 11, 19, .32) 100%
+    );
+  z-index: 1;
+}
+
+.premium-hero-shell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  width: min(calc(100% - 160px), var(--hero-container-max));
+  margin: 0 auto;
+  padding-block: 112px 88px;
+  min-height: clamp(560px, 68svh, 760px);
+  align-content: center;
+}
+
+.premium-hero-content {
+  grid-column: 1 / span 5;
+  max-width: var(--hero-text-max);
+  align-self: center;
+}
+
+.premium-hero-eyebrow {
+  margin: 0 0 16px;
+  color: var(--hero-ink-muted);
+  font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  opacity: .92;
+}
+
+.premium-hero-title {
+  margin: 0;
+  color: var(--hero-ink-strong);
+  font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  max-width: 11ch;
+  text-shadow: 0 1px 2px rgba(5, 15, 28, .18);
+}
+
+.premium-hero-lead {
+  margin: 18px 0 0;
+  max-width: 34ch;
+  color: var(--hero-ink-muted);
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.premium-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 52px;
+  padding-inline: 22px;
+  border-radius: var(--hero-radius-pill);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .24s ease-out, box-shadow .24s ease-out, background-color .24s ease-out, border-color .24s ease-out, color .24s ease-out;
+}
+
+.hero-btn-primary {
+  color: var(--hero-bg-deep);
+  background: #f7fafd;
+  box-shadow: var(--hero-shadow-btn);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(6, 18, 34, 0.28);
+}
+
+.hero-btn-secondary {
+  color: var(--hero-ink-strong);
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .20);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+.hero-btn-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .30);
+}
+
+.hero-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Quick Grid - Separated from hero */
+.quick-grid-separated {
+  width: min(calc(100% - 160px), var(--hero-container-max));
+  margin: 24px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quick-grid-separated .quick-card-new {
+  display: grid;
+  grid-template-columns: 46px 1fr 20px;
+  gap: 13px;
+  align-items: center;
+  min-height: 84px;
+  padding: 20px;
+  border: 1px solid #cbdaf4;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 13px;
+  box-shadow: 0 12px 26px rgba(18, 54, 105, .10);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.quick-grid-separated .quick-card-new.span-2 {
+  grid-column: span 2;
+}
+
+.quick-grid-separated .quick-card-new:hover {
+  transform: translateY(-3px);
+  border-color: rgba(69, 122, 220, .45);
+  box-shadow: 0 16px 32px rgba(18, 54, 105, .16);
+}
+
+.quick-grid-separated .q-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: #2563d8;
+}
+
+.quick-grid-separated .q-title {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 18px;
+  font-weight: 950;
+  color: #17284d;
+}
+
+.quick-grid-separated .q-desc {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #63708a;
+}
+
+.quick-grid-separated .q-arrow {
+  color: #122a54;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+/* Hero Responsive - Tablet */
+@media (max-width: 1024px) {
+  .premium-hero {
+    min-height: 520px;
+  }
+
+  .premium-hero-shell {
+    width: min(calc(100% - 80px), var(--hero-container-max));
+    padding-block: 88px 72px;
+    min-height: 520px;
+  }
+
+  .premium-hero-content {
+    grid-column: 1 / span 7;
+  }
+
+  .premium-hero-title {
+    font-size: 44px;
+    line-height: 1.08;
+  }
+
+  .premium-hero-lead {
+    font-size: 20px;
+  }
+
+  .premium-hero-media img {
+    object-position: 74% 52%;
+  }
+
+  .quick-grid-separated {
+    width: min(calc(100% - 80px), var(--hero-container-max));
+  }
+}
+
+/* Hero Responsive - Mobile */
+@media (max-width: 767px) {
+  .premium-hero {
+    min-height: 440px;
+  }
+
+  .premium-hero-shell {
+    width: min(calc(100% - 40px), var(--hero-container-max));
+    grid-template-columns: 1fr;
+    padding-block: 64px 48px;
+    min-height: 440px;
+  }
+
+  .premium-hero-content {
+    grid-column: 1;
+    max-width: none;
+  }
+
+  .premium-hero-overlay {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(8, 26, 45, .78) 0%,
+        rgba(8, 26, 45, .58) 42%,
+        rgba(8, 26, 45, .44) 100%
+      );
+  }
+
+  .premium-hero-media img {
+    object-position: 76% 50%;
+  }
+
+  .premium-hero-title {
+    font-size: 34px;
+    line-height: 1.12;
+    max-width: 12ch;
+  }
+
+  .premium-hero-lead {
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: 28ch;
+  }
+
+  .premium-hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .quick-grid-separated {
+    width: min(calc(100% - 32px), var(--hero-container-max));
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .quick-grid-separated .quick-card-new.span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .premium-hero-media img,
+  .hero-btn,
+  .quick-grid-separated .quick-card-new {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
 /* CSS Design System for Gunsan Team Building Event */
 
 :root {
