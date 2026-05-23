@@ -141,6 +141,15 @@
   transition: transform .24s ease-out, box-shadow .24s ease-out, background-color .24s ease-out, border-color .24s ease-out, color .24s ease-out;
 }
 
+.hero-btn .btn-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .hero-btn-primary {
   color: var(--hero-bg-deep);
   background: #f7fafd;
