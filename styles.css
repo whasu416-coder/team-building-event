@@ -1854,12 +1854,36 @@ a {
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-sm);
-  padding: 18px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 180px;
+  overflow: hidden;
+}
+
+.tour-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.tour-card .nearby-header,
+.tour-card .nearby-meta,
+.tour-card .nearby-action {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.tour-card .nearby-header {
+  margin-top: 16px;
+}
+
+.tour-card .nearby-action {
+  margin-bottom: 18px;
+  width: calc(100% - 36px);
 }
 
 .tour-card:hover {
