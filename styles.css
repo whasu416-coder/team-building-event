@@ -1782,10 +1782,25 @@ a {
   padding: 24px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border-light);
+  border-top: 4px solid var(--color-blue-primary);
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tour-course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tour-course-card:nth-child(2) {
+  border-top: 4px solid var(--color-orange-primary);
+}
+
+.tour-course-card:nth-child(3) {
+  border-top: 4px solid var(--color-teal-primary);
 }
 
 .course-label {
@@ -1902,6 +1917,52 @@ a {
   background-color: var(--color-teal-primary);
   color: #ffffff;
   border-color: var(--color-teal-primary);
+}
+
+/* Tour Subsection Headers & Badges */
+.tour-subsection-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.tour-subsection-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tour-subsection-badge.badge-blue {
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-primary);
+}
+
+.tour-subsection-badge.badge-teal {
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-primary);
+}
+
+.tour-subsection-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-navy);
+}
+
+/* Tour Section Divider */
+.tour-section-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-border-light);
+  margin: 48px 0 36px;
 }
 
 /* Tour grid responsive settings */
