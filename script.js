@@ -74,14 +74,23 @@ function initGoogleLeafletMap() {
       markerClass: "facility-marker-green",
       id: "daiso"
     },
-    pharmacy: {
-      lat: 35.9623637,
-      lng: 126.7150938,
-      title: "💊 수송우리약국",
-      desc: "약국 · 비상약 및 상비약 구매 (도보 약 5분)",
+    pharmacyRaon: {
+      lat: 35.9636742,
+      lng: 126.71513,
+      title: "💊 라온약국",
+      desc: "약국 · 상비약 및 처방조제 의약품 (도보 약 5분)",
       no: "💊",
       markerClass: "facility-marker-green",
-      id: "pharmacy"
+      id: "pharmacy-raon"
+    },
+    pharmacyNeulpureum: {
+      lat: 35.962500,
+      lng: 126.717100,
+      title: "💊 늘푸름약국",
+      desc: "약국 · 상비약 및 처방조제 의약품 (도보 약 7분)",
+      no: "💊",
+      markerClass: "facility-marker-green",
+      id: "pharmacy-neulpureum"
     },
     emart24: {
       lat: 35.9626886,
