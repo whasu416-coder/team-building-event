@@ -44,7 +44,7 @@ function initGoogleLeafletMap() {
       title: "🏠 군산수송제일오투그란데1단지 306동",
       desc: "단합대회 숙소 (도보 출발점)",
       no: "🏠",
-      markerClass: "pin-color-purple",
+      markerClass: "pin-color-pink",
       id: "lodging"
     },
     o2Mart: {
@@ -107,6 +107,11 @@ function initGoogleLeafletMap() {
   const map = L.map('leaflet-map', {
     scrollWheelZoom: false
   });
+
+  // Remove "Leaflet" link prefix from the attribution control
+  if (map.attributionControl) {
+    map.attributionControl.setPrefix(false);
+  }
 
   // Enable scroll zoom on map interaction
   map.on('click', () => {
