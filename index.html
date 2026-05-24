@@ -974,33 +974,32 @@
     /* Mobile Floating Action Bar */
     .mobile-floating-bar {
       position: fixed;
-      top: 8px; /* Positioned at the very top, even more compact */
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px)); /* Positioned at the bottom, safe area aware */
       left: 50%;
       transform: translateX(-50%);
       z-index: 999999;
       display: none; /* Hide on desktop */
       align-items: center;
-      gap: 4px;
-      padding: 3px 4px;
+      gap: 8px;
+      padding: 6px 8px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.85); /* Semitransparent white */
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(203, 218, 244, 0.6);
-      box-shadow: 0 4px 14px rgba(11, 27, 61, 0.1);
+      box-shadow: 0 6px 20px rgba(11, 27, 61, 0.12);
     }
     
     .floating-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 10px; /* Reduced padding */
+      padding: 8px 16px; /* Optimized padding for bottom action buttons */
       border-radius: 999px;
-      font-size: 11px; /* Even smaller font size */
+      font-size: 12.5px;
       font-weight: 800;
       text-decoration: none;
       transition: transform 0.2s ease, opacity 0.2s ease;
-      color: #ffffff;
       line-height: 1.2;
     }
     
@@ -1010,13 +1009,16 @@
     }
     
     .floating-btn-schedule {
-      background: #2563d8;
-      box-shadow: 0 2px 8px rgba(37, 99, 215, 0.2);
+      background: #2563d8; /* Main Blue */
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 215, 0.2);
     }
     
     .floating-btn-emergency {
-      background: #ff5252;
-      box-shadow: 0 2px 8px rgba(255, 82, 82, 0.2);
+      background: #ffe3e3; /* Light red background */
+      color: #c92a2a; /* Red text */
+      border: 1px solid rgba(199, 37, 37, 0.15);
+      box-shadow: 0 4px 12px rgba(199, 37, 37, 0.08);
     }
     
     @media (max-width: 768px) {
@@ -1664,8 +1666,8 @@
 
   <!-- Floating Action Bar for Mobile -->
   <div class="mobile-floating-bar" aria-label="모바일 빠른 이동">
-    <a href="#schedule" class="floating-btn floating-btn-schedule">일정</a>
-    <a href="#emergency-contact" class="floating-btn floating-btn-emergency">비상</a>
+    <a href="#schedule" class="floating-btn floating-btn-schedule">일정 보기</a>
+    <a href="#emergency-contact" class="floating-btn floating-btn-emergency">비상 연락</a>
   </div>
 
   <!-- Leaflet.js Script for Interactive Map -->
