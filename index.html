@@ -789,24 +789,50 @@
       transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .custom-map-marker.lodging-marker {
-      background: var(--blue, #2563d8);
-      font-size: 16px;
+      background: #8e44ad;
+      font-size: 14px;
     }
-    .custom-map-marker.facility-marker-blue {
-      background: var(--blue, #2563d8);
+    .custom-map-marker.facility-marker-purple {
+      background: #8e44ad;
       font-size: 13px;
     }
-    .custom-map-marker.facility-marker-teal {
-      background: var(--teal, #0c948b);
+    .custom-map-marker.facility-marker-orange {
+      background: #e67e22;
+      font-size: 13px;
+    }
+    .custom-map-marker.facility-marker-yellow {
+      background: #f1c40f;
+      color: #0b1b3d;
+      font-size: 13px;
+    }
+    .custom-map-marker.facility-marker-green {
+      background: #27ae60;
+      font-size: 13px;
+    }
+    .custom-map-marker.facility-marker-brown {
+      background: #a04000;
+      font-size: 13px;
+    }
+    .custom-map-marker.facility-marker-magenta {
+      background: #e91e63;
       font-size: 13px;
     }
     .custom-map-marker:hover, 
     .custom-map-marker.is-active {
-      transform: scale(1.2) translateY(-2px);
+      transform: scale(1.25) translateY(-2px);
       box-shadow: 0 6px 14px rgba(0,0,0,0.3);
       filter: brightness(1.1);
       border-color: #ffe699;
+      z-index: 99999 !important;
     }
+    /* Badge specific borders and text colors */
+    .facility-no-purple { border: 2px solid #8e44ad; color: #8e44ad; }
+    .facility-no-orange { border: 2px solid #e67e22; color: #e67e22; }
+    .facility-no-yellow { border: 2px solid #f1c40f; color: #d4ac0d; }
+    .facility-no-green { border: 2px solid #27ae60; color: #27ae60; }
+    .facility-no-brown { border: 2px solid #a04000; color: #a04000; }
+    .facility-no-magenta { border: 2px solid #e91e63; color: #e91e63; }
+
     /* Customize leaflet popup */
     .leaflet-popup-content-wrapper {
       border-radius: 10px;
@@ -1118,12 +1144,40 @@
 
         <!-- 카드 리스트 -->
         <aside class="facility-cards" aria-label="숙소 주변 편의시설 카드 목록">
+          <article class="facility-card" data-facility-id="lodging">
+            <div class="facility-card-head">
+              <span class="facility-no facility-no-purple">🏠</span>
+              <div>
+                <h3>오투그란데 306동</h3>
+                <p>단합대회 숙소 (출발점)</p>
+              </div>
+            </div>
+            <dl class="facility-meta">
+              <div><dt>분류</dt><dd>숙소</dd></div>
+              <div><dt>위치</dt><dd>군산 수송안길 35</dd></div>
+            </dl>
+          </article>
+
+          <article class="facility-card" data-facility-id="o2-mart">
+            <div class="facility-card-head">
+              <span class="facility-no facility-no-orange">1</span>
+              <div>
+                <h3>오투마트</h3>
+                <p>식료품 및 간단한 생필품 구매</p>
+              </div>
+            </div>
+            <dl class="facility-meta">
+              <div><dt>분류</dt><dd>일반마트</dd></div>
+              <div><dt>도보</dt><dd>약 1분 이내</dd></div>
+            </dl>
+          </article>
+
           <article class="facility-card" data-facility-id="lotte-mart">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-blue">1</span>
+              <span class="facility-no facility-no-yellow">2</span>
               <div>
                 <h3>롯데마트 군산점</h3>
-                <p>생필품·간식 구매 가능</p>
+                <p>식음료 및 대형 물품 구매</p>
               </div>
             </div>
             <dl class="facility-meta">
@@ -1134,43 +1188,57 @@
 
           <article class="facility-card" data-facility-id="daiso">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-teal">2</span>
+              <span class="facility-no facility-no-green">3</span>
               <div>
                 <h3>다이소 군산점</h3>
-                <p>생활용품·소모품 구매 가능</p>
+                <p>생활용품 및 단합행사 소모품</p>
               </div>
             </div>
             <dl class="facility-meta">
               <div><dt>분류</dt><dd>생활용품</dd></div>
-              <div><dt>도보</dt><dd>약 6~8분</dd></div>
-            </dl>
-          </article>
-
-          <article class="facility-card" data-facility-id="convenience">
-            <div class="facility-card-head">
-              <span class="facility-no facility-no-blue">3</span>
-              <div>
-                <h3>가까운 편의점</h3>
-                <p>간단한 간식·음료 구매</p>
-              </div>
-            </div>
-            <dl class="facility-meta">
-              <div><dt>분류</dt><dd>편의점</dd></div>
-              <div><dt>도보</dt><dd>약 3~5분</dd></div>
+              <div><dt>도보</dt><dd>약 5~7분</dd></div>
             </dl>
           </article>
 
           <article class="facility-card" data-facility-id="pharmacy">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-teal">4</span>
+              <span class="facility-no facility-no-green">4</span>
               <div>
-                <h3>가까운 약국</h3>
-                <p>비상약·상비약 구매</p>
+                <h3>수송우리약국</h3>
+                <p>상비약 및 처방조제 의약품</p>
               </div>
             </div>
             <dl class="facility-meta">
               <div><dt>분류</dt><dd>약국</dd></div>
-              <div><dt>도보</dt><dd>약 5~8분</dd></div>
+              <div><dt>도보</dt><dd>약 5~7분</dd></div>
+            </dl>
+          </article>
+
+          <article class="facility-card" data-facility-id="emart24">
+            <div class="facility-card-head">
+              <span class="facility-no facility-no-brown">5</span>
+              <div>
+                <h3>이마트24 R군산참조은점</h3>
+                <p>24시간 간단한 간식 및 주류</p>
+              </div>
+            </div>
+            <dl class="facility-meta">
+              <div><dt>분류</dt><dd>편의점</dd></div>
+              <div><dt>도보</dt><dd>약 2~3분</dd></div>
+            </dl>
+          </article>
+
+          <article class="facility-card" data-facility-id="atm">
+            <div class="facility-card-head">
+              <span class="facility-no facility-no-magenta">6</span>
+              <div>
+                <h3>군산월명신협 ATM</h3>
+                <p>현금 입출금 및 송금 서비스</p>
+              </div>
+            </div>
+            <dl class="facility-meta">
+              <div><dt>분류</dt><dd>금융기기</dd></div>
+              <div><dt>도보</dt><dd>약 2~3분</dd></div>
             </dl>
           </article>
 

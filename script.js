@@ -36,60 +36,79 @@ function initLeafletMap() {
   const mapContainer = document.getElementById('leaflet-map');
   if (!mapContainer) return;
 
-  // 1. Coordinates and info for accommodation and facilities
+  // 1. Coordinates and info matching the Google My Maps layer screenshot
   const positions = {
     lodging: {
-      lat: 35.967812,
-      lng: 126.711832,
-      title: "🏠 숙소 (오투그란데 306동)",
-      desc: "군산수송제일오투그란데1단지 306동 (출발점)",
+      lat: 35.96275,
+      lng: 126.71175,
+      title: "🏠 군산수송제일오투그란데1단지 306동",
+      desc: "단합대회 숙소 (도보 출발점)",
       no: "🏠",
-      markerClass: "lodging-marker"
+      markerClass: "lodging-marker",
+      id: "lodging"
+    },
+    o2Mart: {
+      lat: 35.96270,
+      lng: 126.71070,
+      title: "1️⃣ 오투마트",
+      desc: "마트 · 식료품 및 생필품 구매 (도보 1분 이내)",
+      no: "1",
+      markerClass: "facility-marker-orange",
+      id: "o2-mart"
     },
     lotteMart: {
       lat: 35.964724,
       lng: 126.716392,
-      title: "1️⃣ 롯데마트 군산점",
-      desc: "대형마트 · 생필품 및 간식 구매 (도보 약 8~10분)",
-      no: "1",
-      markerClass: "facility-marker-blue",
+      title: "2️⃣ 롯데마트 군산점",
+      desc: "대형마트 · 식음료 대량 구매 (도보 약 8~10분)",
+      no: "2",
+      markerClass: "facility-marker-yellow",
       id: "lotte-mart"
     },
     daiso: {
       lat: 35.962649,
       lng: 126.715225,
-      title: "2️⃣ 다이소 군산점",
-      desc: "생활용품 · 소모품 및 기타 용품 구매 (도보 약 6~8분)",
-      no: "2",
-      markerClass: "facility-marker-teal",
-      id: "daiso"
-    },
-    convenience: {
-      lat: 35.966089,
-      lng: 126.711365,
-      title: "3️⃣ 가까운 편의점 (GS25 수송오투점)",
-      desc: "편의점 · 간단한 간식 및 음료 구매 (도보 약 3~5분)",
+      title: "3️⃣ 다이소 군산점",
+      desc: "생활용품 · 소모품 및 행사 용품 (도보 약 5~7분)",
       no: "3",
-      markerClass: "facility-marker-blue",
-      id: "convenience"
+      markerClass: "facility-marker-green",
+      id: "daiso"
     },
     pharmacy: {
       lat: 35.962338,
       lng: 126.715161,
-      title: "4️⃣ 가까운 약국 (수송우리약국)",
-      desc: "약국 · 비상약 및 상비약 구매 (도보 약 5~8분)",
+      title: "4️⃣ 수송우리약국",
+      desc: "약국 · 비상약 및 상비약 구매 (도보 약 5~7분)",
       no: "4",
-      markerClass: "facility-marker-teal",
+      markerClass: "facility-marker-green",
       id: "pharmacy"
+    },
+    emart24: {
+      lat: 35.96150,
+      lng: 126.71260,
+      title: "5️⃣ 이마트24 R군산참조은점",
+      desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 2~3분)",
+      no: "5",
+      markerClass: "facility-marker-brown",
+      id: "emart24"
+    },
+    atm: {
+      lat: 35.96145,
+      lng: 126.71285,
+      title: "6️⃣ 신협ATM 군산월명신협 수송지점",
+      desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 2~3분)",
+      no: "6",
+      markerClass: "facility-marker-magenta",
+      id: "atm"
     }
   };
 
-  // 2. Initialize Leaflet Map (Centered on coordinates midpoint)
-  const centerLat = 35.9651;
-  const centerLng = 126.7139;
+  // 2. Initialize Leaflet Map (Centered on bounding box midpoint)
+  const centerLat = 35.9631;
+  const centerLng = 126.7135;
   const map = L.map('leaflet-map', {
     scrollWheelZoom: false // Prevent map scroll from hijacking page scroll
-  }).setView([centerLat, centerLng], 15);
+  }).setView([centerLat, centerLng], 16);
 
   // Enable scroll zoom on map interaction
   map.on('click', () => {
@@ -112,7 +131,7 @@ function initLeafletMap() {
   Object.keys(positions).forEach(key => {
     const pos = positions[key];
     
-    // Custom DIV icon matching the UI color scheme
+    // Custom DIV icon matching the Google My Maps screenshot pin colors
     const customIcon = L.divIcon({
       html: `<div class="custom-map-marker ${pos.markerClass}">${pos.no}</div>`,
       className: 'custom-leaflet-icon-container',
@@ -176,7 +195,7 @@ function initLeafletMap() {
       const targetMarker = markers[facilityId];
       if (targetMarker) {
         targetMarker.openPopup();
-        map.setView(targetMarker.getLatLng(), 16, { animate: true, duration: 0.6 });
+        map.setView(targetMarker.getLatLng(), 17, { animate: true, duration: 0.6 });
 
         // Highlight marker element
         const markerDom = targetMarker.getElement().querySelector('.custom-map-marker');
