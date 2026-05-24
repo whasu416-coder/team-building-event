@@ -974,33 +974,34 @@
     /* Mobile Floating Action Bar */
     .mobile-floating-bar {
       position: fixed;
-      bottom: 24px;
+      top: 8px; /* Positioned at the very top, even more compact */
       left: 50%;
       transform: translateX(-50%);
       z-index: 999999;
       display: none; /* Hide on desktop */
       align-items: center;
-      gap: 8px;
-      padding: 6px 8px;
+      gap: 4px;
+      padding: 3px 4px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(203, 218, 244, 0.5);
-      box-shadow: 0 10px 30px rgba(11, 27, 61, 0.15);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(203, 218, 244, 0.6);
+      box-shadow: 0 4px 14px rgba(11, 27, 61, 0.1);
     }
     
     .floating-btn {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
+      justify-content: center;
+      padding: 4px 10px; /* Reduced padding */
       border-radius: 999px;
-      font-size: 13.5px;
+      font-size: 11px; /* Even smaller font size */
       font-weight: 800;
       text-decoration: none;
       transition: transform 0.2s ease, opacity 0.2s ease;
       color: #ffffff;
+      line-height: 1.2;
     }
     
     .floating-btn:active {
@@ -1010,18 +1011,12 @@
     
     .floating-btn-schedule {
       background: #2563d8;
-      box-shadow: 0 4px 12px rgba(37, 99, 215, 0.25);
+      box-shadow: 0 2px 8px rgba(37, 99, 215, 0.2);
     }
     
     .floating-btn-emergency {
       background: #ff5252;
-      box-shadow: 0 4px 12px rgba(255, 82, 82, 0.25);
-    }
-    
-    .floating-icon {
-      width: 14px;
-      height: 14px;
-      color: currentColor;
+      box-shadow: 0 2px 8px rgba(255, 82, 82, 0.2);
     }
     
     @media (max-width: 768px) {
@@ -1669,18 +1664,12 @@
 
   <!-- Floating Action Bar for Mobile -->
   <div class="mobile-floating-bar" aria-label="모바일 빠른 이동">
-    <a href="#schedule" class="floating-btn floating-btn-schedule">
-      <svg class="floating-icon"><use href="#i-calendar"/></svg>
-      <span>일정 보기</span>
-    </a>
-    <a href="#emergency-contact" class="floating-btn floating-btn-emergency">
-      <svg class="floating-icon"><use href="#i-phone"/></svg>
-      <span>비상 연락</span>
-    </a>
+    <a href="#schedule" class="floating-btn floating-btn-schedule">일정</a>
+    <a href="#emergency-contact" class="floating-btn floating-btn-emergency">비상</a>
   </div>
 
   <!-- Leaflet.js Script for Interactive Map -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="./script.js?v=16"></script>
+  <script src="./script.js?v=17"></script>
 </body>
 </html>
