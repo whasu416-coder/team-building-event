@@ -216,6 +216,13 @@
       background: #effdfb;
     }
 
+    .tag.contact,
+    .schedule-card.teal .tag.contact {
+      color: #c92a2a;
+      border-color: #ffc9c9;
+      background: #fff5f5;
+    }
+
     .notice {
       display: flex;
       align-items: flex-start;
@@ -841,11 +848,11 @@
           <ul class="timeline">
             <li class="timeline-item">
               <span class="time">09:00</span><span class="rail"><span class="dot"></span></span>
-              <div class="event"><h4>출발</h4><p>회사 또는 조별 집결지에서 출발</p></div>
+              <div class="event"><h4>출발 <span class="tag contact">담당에게 연락</span></h4><p>회사 또는 조별 집결지에서 출발</p></div>
             </li>
             <li class="timeline-item">
               <span class="time">12:00</span><span class="rail"><span class="dot"></span></span>
-              <div class="event"><h4>숙소 도착</h4><p>체크인 및 짐 정리</p></div>
+              <div class="event"><h4>숙소 도착 <span class="tag contact">담당에게 연락</span></h4><p>체크인 및 짐 정리</p></div>
             </li>
             <li class="timeline-item">
               <span class="time">13:00</span><span class="rail"><span class="dot"></span></span>
@@ -875,7 +882,7 @@
           <ul class="timeline">
             <li class="timeline-item">
               <span class="time">08:00</span><span class="rail"><span class="dot"></span></span>
-              <div class="event"><h4>기상</h4><p>숙소 정리 및 청소</p></div>
+              <div class="event"><h4>기상 <span class="tag contact">담당에게 연락</span></h4><p>숙소 정리 및 청소</p></div>
             </li>
             <li class="timeline-item">
               <span class="time">09:00</span><span class="rail"><span class="dot"></span></span>
@@ -891,7 +898,7 @@
             </li>
             <li class="timeline-item">
               <span class="time">13:00</span><span class="rail"><span class="dot"></span></span>
-              <div class="event"><h4>숙소정리 후 복귀 출발</h4></div>
+              <div class="event"><h4>숙소정리 후 복귀 출발 <span class="tag contact">담당에게 연락</span></h4></div>
             </li>
           </ul>
           <div class="notice teal">
@@ -955,7 +962,7 @@
 
         <div class="logic">
           <svg class="icon"><use href="#i-chart"/></svg>
-          <div><strong>1인 비용 산정 로직</strong><span>식대 108,000원 + 예비비 10,000원 = 1인 총액 118,000원</span></div>
+          <div><strong>1인 비용 산정 내역</strong><span>식대 108,000원 + 예비비 10,000원 = 1인 총액 118,000원</span></div>
         </div>
 
         <div class="rules">
@@ -1044,7 +1051,7 @@
           <h2 id="facility-map-title">숙소 주변 편의시설</h2>
         </div>
         <p id="facility-map-desc" class="section-desc" style="margin-bottom: 24px; color: var(--color-text-muted); font-size: 15px; font-weight: 500;">
-          숙소를 기준으로 도착 후 바로 필요한 편의시설을 지도에서 확인할 수 있습니다.
+          306동 정문 기준 도보 10분 이내 주요 편의시설
         </p>
       </div>
 
@@ -1073,45 +1080,47 @@
             <g id="layer-lodging" class="poi poi-lodging" data-facility-id="lodging">
               <circle class="lodging-halo" cx="360" cy="420" r="64"></circle>
               <circle class="lodging-core" cx="360" cy="420" r="28"></circle>
-              <text class="poi-label poi-label-strong" x="360" y="500">숙소</text>
-              <text class="poi-sub" x="360" y="530">수송제일오투그란데1단지</text>
+              <text class="poi-label poi-label-strong" x="360" y="500">숙소 · 306동 정문</text>
+              <text class="poi-sub" x="360" y="530">제일오투그란데 1단지</text>
             </g>
 
             <!-- layer 4: 편의시설 마커 -->
             <g id="layer-facilities">
-              <g class="poi poi-blue" data-facility-id="mart-large" tabindex="0">
-                <circle class="poi-badge" cx="760" cy="350" r="30"></circle>
-                <text class="poi-no" x="760" y="360">1</text>
-                <text class="poi-label" x="820" y="355">대형마트</text>
-                <text class="poi-sub" x="820" y="385">장보기 · 음료 · 간식</text>
+              <g class="poi poi-blue" data-facility-id="lotte-mart" tabindex="0">
+                <circle class="poi-badge" cx="950" cy="350" r="30"></circle>
+                <text class="poi-no" x="950" y="360">1</text>
+                <text class="poi-label" x="1010" y="355">롯데마트 군산점</text>
+                <text class="poi-sub" x="1010" y="385">도보 약 8~10분</text>
               </g>
 
-              <g class="poi poi-teal" data-facility-id="mart-local" tabindex="0">
-                <circle class="poi-badge" cx="680" cy="580" r="30"></circle>
-                <text class="poi-no" x="680" y="590">2</text>
-                <text class="poi-label" x="740" y="585">동네마트</text>
-                <text class="poi-sub" x="740" y="615">생필품 · 간식</text>
+              <g class="poi poi-teal" data-facility-id="daiso" tabindex="0">
+                <circle class="poi-badge" cx="720" cy="380" r="30"></circle>
+                <text class="poi-no" x="720" y="390">2</text>
+                <text class="poi-label" x="780" y="385">다이소 군산점</text>
+                <text class="poi-sub" x="780" y="415">도보 약 6~8분</text>
               </g>
 
-              <g class="poi poi-blue" data-facility-id="pharmacy" tabindex="0">
-                <circle class="poi-badge" cx="520" cy="660" r="30"></circle>
-                <text class="poi-no" x="520" y="670">3</text>
-                <text class="poi-label" x="580" y="665">약국</text>
-                <text class="poi-sub" x="580" y="695">상비약 · 멀미약</text>
+              <g class="poi poi-blue" data-facility-id="convenience" tabindex="0">
+                <circle class="poi-badge" cx="450" cy="250" r="30"></circle>
+                <text class="poi-no" x="450" y="260">3</text>
+                <text class="poi-label" x="510" y="255">가까운 편의점</text>
+                <text class="poi-sub" x="510" y="285">도보 약 3~5분</text>
               </g>
 
-              <g class="poi poi-teal" data-facility-id="convenience" tabindex="0">
-                <circle class="poi-badge" cx="930" cy="520" r="30"></circle>
-                <text class="poi-no" x="930" y="530">4</text>
-                <text class="poi-label" x="990" y="525">편의점</text>
-                <text class="poi-sub" x="990" y="555">음료 · 생필품</text>
+              <g class="poi poi-teal" data-facility-id="pharmacy" tabindex="0">
+                <circle class="poi-badge" cx="480" cy="620" r="30"></circle>
+                <text class="poi-no" x="480" y="630">4</text>
+                <text class="poi-label" x="540" y="625">가까운 약국</text>
+                <text class="poi-sub" x="540" y="655">도보 약 5~8분</text>
               </g>
             </g>
 
             <!-- layer 5: 도보 힌트/연결선 -->
             <g id="layer-walk">
-              <path class="walk-line" d="M420 420 C540 410, 620 380, 730 350" />
-              <path class="walk-line" d="M400 450 C500 520, 560 560, 650 580" />
+              <path class="walk-line" d="M420 420 C600 400, 750 370, 920 350" />
+              <path class="walk-line" d="M420 420 C500 410, 600 400, 690 380" />
+              <path class="walk-line" d="M360 360 C380 320, 420 280, 435 275" />
+              <path class="walk-line" d="M380 470 C420 520, 450 560, 470 590" />
             </g>
 
             <!-- layer 6: 범례 -->
@@ -1126,64 +1135,60 @@
 
         <!-- 카드 리스트 -->
         <aside class="facility-cards" aria-label="숙소 주변 편의시설 카드 목록">
-          <article class="facility-card" data-facility-id="mart-large">
+          <article class="facility-card" data-facility-id="lotte-mart">
             <div class="facility-card-head">
               <span class="facility-no facility-no-blue">1</span>
               <div>
-                <h3>대형마트</h3>
-                <p>장보기, 음료, 간식 구매</p>
+                <h3>롯데마트 군산점</h3>
+                <p>생필품·간식 구매 가능</p>
               </div>
             </div>
             <dl class="facility-meta">
-              <div><dt>도보</dt><dd>도보 시간 산출 필요</dd></div>
-              <div><dt>영업시간</dt><dd>지도 앱에서 확인</dd></div>
+              <div><dt>분류</dt><dd>대형마트</dd></div>
+              <div><dt>도보</dt><dd>약 8~10분</dd></div>
             </dl>
-            <a href="https://map.kakao.com/?q=군산수송제일오투그란데1단지아파트%20306동%20근처%20대형마트" target="_blank" rel="noopener noreferrer" class="facility-action" style="display:block; text-align:center; text-decoration:none; line-height:44px;">지도에서 보기</a>
           </article>
 
-          <article class="facility-card" data-facility-id="mart-local">
+          <article class="facility-card" data-facility-id="daiso">
             <div class="facility-card-head">
               <span class="facility-no facility-no-teal">2</span>
               <div>
-                <h3>동네마트</h3>
-                <p>간단한 생필품과 간식 구매</p>
+                <h3>다이소 군산점</h3>
+                <p>생활용품·소모품 구매 가능</p>
               </div>
             </div>
             <dl class="facility-meta">
-              <div><dt>도보</dt><dd>도보 시간 산출 필요</dd></div>
-              <div><dt>영업시간</dt><dd>지도 앱에서 확인</dd></div>
+              <div><dt>분류</dt><dd>생활용품</dd></div>
+              <div><dt>도보</dt><dd>약 6~8분</dd></div>
             </dl>
-            <a href="https://map.kakao.com/?q=군산수송제일오투그란데1단지아파트%20306동%20근처%20마트" target="_blank" rel="noopener noreferrer" class="facility-action facility-action-teal" style="display:block; text-align:center; text-decoration:none; line-height:44px;">지도에서 보기</a>
-          </article>
-
-          <article class="facility-card" data-facility-id="pharmacy">
-            <div class="facility-card-head">
-              <span class="facility-no facility-no-blue">3</span>
-              <div>
-                <h3>약국</h3>
-                <p>상비약, 멀미약, 소화제 등 긴급 구매</p>
-              </div>
-            </div>
-            <dl class="facility-meta">
-              <div><dt>도보</dt><dd>도보 시간 산출 필요</dd></div>
-              <div><dt>영업시간</dt><dd>지도 앱에서 확인</dd></div>
-            </dl>
-            <a href="https://map.kakao.com/?q=군산수송제일오투그란데1단지아파트%20306동%20근처%20약국" target="_blank" rel="noopener noreferrer" class="facility-action" style="display:block; text-align:center; text-decoration:none; line-height:44px;">지도에서 보기</a>
           </article>
 
           <article class="facility-card" data-facility-id="convenience">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-teal">4</span>
+              <span class="facility-no facility-no-blue">3</span>
               <div>
-                <h3>편의점</h3>
-                <p>음료, 간식, 간단한 생필품 구매</p>
+                <h3>가까운 편의점</h3>
+                <p>간단한 간식·음료 구매</p>
               </div>
             </div>
             <dl class="facility-meta">
-              <div><dt>도보</dt><dd>도보 시간 산출 필요</dd></div>
-              <div><dt>영업시간</dt><dd>지도 앱에서 확인</dd></div>
+              <div><dt>분류</dt><dd>편의점</dd></div>
+              <div><dt>도보</dt><dd>약 3~5분</dd></div>
             </dl>
-            <a href="https://map.kakao.com/?q=군산수송제일오투그란데1단지아파트%20306동%20근처%20편의점" target="_blank" rel="noopener noreferrer" class="facility-action facility-action-teal" style="display:block; text-align:center; text-decoration:none; line-height:44px;">지도에서 보기</a>
+          </article>
+
+          <article class="facility-card" data-facility-id="pharmacy">
+            <div class="facility-card-head">
+              <span class="facility-no facility-no-teal">4</span>
+              <div>
+                <h3>가까운 약국</h3>
+                <p>비상약·상비약 구매</p>
+              </div>
+            </div>
+            <dl class="facility-meta">
+              <div><dt>분류</dt><dd>약국</dd></div>
+              <div><dt>도보</dt><dd>약 5~8분</dd></div>
+            </dl>
           </article>
 
           <p class="facility-note" style="margin-top: 14px; font-size: 12px; color: var(--color-text-muted); font-weight: 500;">※ 실제 영업시간과 경로는 지도 앱에서 최종 확인해 주세요.</p>
