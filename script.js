@@ -1,7 +1,3 @@
-// TODO: Kakao Maps JavaScript API 키 입력 필요
-// 서비스 배포 시 HTML 파일 하단의 카카오맵 script 태그 주석을 해제하고 실제 발급받은 App Key를 넣어주세요.
-// 카카오 개발자 콘솔(https://developers.kakao.com)에서 도메인(예: https://yourdomain.github.io) 등록이 필요합니다.
-
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -14,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        // Offset for slightly better viewing position (optional)
+        // Offset for slightly better viewing position
         const offset = 20;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = targetElement.getBoundingClientRect().top;
@@ -32,119 +28,162 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize Kakao Map if SDK is loaded
-  initKakaoMap();
+  // Initialize Leaflet Map with multiple markers
+  initLeafletMap();
 });
 
-function initKakaoMap() {
-  const mapContainer = document.getElementById('kakao-map');
-  const fallbackContainer = document.getElementById('map-fallback');
-  
-  if (!mapContainer || !fallbackContainer) return;
-  
-  if (typeof kakao !== 'undefined' && kakao.maps) {
-    fallbackContainer.style.display = 'none';
-    mapContainer.style.display = 'block';
+function initLeafletMap() {
+  const mapContainer = document.getElementById('leaflet-map');
+  if (!mapContainer) return;
+
+  // 1. Coordinates and info for accommodation and facilities
+  const positions = {
+    lodging: {
+      lat: 35.967812,
+      lng: 126.711832,
+      title: "🏠 숙소 (오투그란데 306동)",
+      desc: "군산수송제일오투그란데1단지 306동 (출발점)",
+      no: "🏠",
+      markerClass: "lodging-marker"
+    },
+    lotteMart: {
+      lat: 35.964724,
+      lng: 126.716392,
+      title: "1️⃣ 롯데마트 군산점",
+      desc: "대형마트 · 생필품 및 간식 구매 (도보 약 8~10분)",
+      no: "1",
+      markerClass: "facility-marker-blue",
+      id: "lotte-mart"
+    },
+    daiso: {
+      lat: 35.962649,
+      lng: 126.715225,
+      title: "2️⃣ 다이소 군산점",
+      desc: "생활용품 · 소모품 및 기타 용품 구매 (도보 약 6~8분)",
+      no: "2",
+      markerClass: "facility-marker-teal",
+      id: "daiso"
+    },
+    convenience: {
+      lat: 35.966089,
+      lng: 126.711365,
+      title: "3️⃣ 가까운 편의점 (GS25 수송오투점)",
+      desc: "편의점 · 간단한 간식 및 음료 구매 (도보 약 3~5분)",
+      no: "3",
+      markerClass: "facility-marker-blue",
+      id: "convenience"
+    },
+    pharmacy: {
+      lat: 35.962338,
+      lng: 126.715161,
+      title: "4️⃣ 가까운 약국 (수송우리약국)",
+      desc: "약국 · 비상약 및 상비약 구매 (도보 약 5~8분)",
+      no: "4",
+      markerClass: "facility-marker-teal",
+      id: "pharmacy"
+    }
+  };
+
+  // 2. Initialize Leaflet Map (Centered on coordinates midpoint)
+  const centerLat = 35.9651;
+  const centerLng = 126.7139;
+  const map = L.map('leaflet-map', {
+    scrollWheelZoom: false // Prevent map scroll from hijacking page scroll
+  }).setView([centerLat, centerLng], 15);
+
+  // Enable scroll zoom on map interaction
+  map.on('click', () => {
+    map.scrollWheelZoom.enable();
+  });
+  map.on('mouseout', () => {
+    map.scrollWheelZoom.disable();
+  });
+
+  // 3. Add Premium CartoDB Voyager Tile Layer
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
+  }).addTo(map);
+
+  const markers = {};
+
+  // 4. Create markers and add to map
+  Object.keys(positions).forEach(key => {
+    const pos = positions[key];
     
-    // WGS84 좌표계 기준 '군산수송제일오투그란데1단지아파트 306동' 중심 좌표 설정 (35.967812, 126.711832)
-    const lat = 35.967812;
-    const lng = 126.711832;
-    const centerLatLng = new kakao.maps.LatLng(lat, lng);
-    
-    const options = {
-      center: centerLatLng,
-      level: 3
-    };
-    
-    const map = new kakao.maps.Map(mapContainer, options);
-    
-    // 주소-좌표 변환 객체를 생성합니다
-    const geocoder = new kakao.maps.services.Geocoder();
-    
-    // 실제 도로명 주소로 좌표를 검색하여 설정
-    const address = "전북특별자치도 군산시 수송안길 35"; // 군산수송제일오투그란데 1단지
-    
-    geocoder.addressSearch(address, function(result, status) {
-      if (status === kakao.maps.services.Status.OK) {
-        const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-        map.setCenter(coords);
-        
-        // 마커 생성
-        const marker = new kakao.maps.Marker({
-          map: map,
-          position: coords
-        });
-        
-        // 인포윈도우 생성
-        const infowindow = new kakao.maps.InfoWindow({
-          content: '<div style="padding:8px 12px;font-size:12px;font-weight:700;color:#0f172a;text-align:center;min-width:180px;border-radius:8px;">🏠 숙소<br><span style="font-size:11px;font-weight:500;color:#64748b;display:inline-block;margin-top:2px;">수송제일오투그란데 306동</span></div>'
-        });
-        infowindow.open(map, marker);
-        
-        // 마커 클릭 이벤트 등록 (클릭 시 카카오맵 상세 보기 새창 열림)
-        kakao.maps.event.addListener(marker, 'click', function() {
-          window.open("https://map.kakao.com/?urlX=435165.0000030022&urlY=684921.9999999995&urlLevel=3&itemId=26707549&q=%EA%B5%B0%EC%82%B0%EC%88%98%EC%86%A1%EC%A0%9C%EC%9D%BC%EC%98%A4%ED%88%AC%EA%B7%B8%EB%9E%80%EB%8D%B01%EB%8B%A8%EC%A7%80%EC%95%84%ED%8C%8C%ED%8A%B8%20306%EB%8F%99&srcId=26707549&map_type=TYPE_MAP", "_blank", "noopener,noreferrer");
-        });
-      } else {
-        // Geocoder 검색 실패 시 기본 WGS84 좌표 마커 표시
-        createDefaultMarker(map, centerLatLng);
-      }
+    // Custom DIV icon matching the UI color scheme
+    const customIcon = L.divIcon({
+      html: `<div class="custom-map-marker ${pos.markerClass}">${pos.no}</div>`,
+      className: 'custom-leaflet-icon-container',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -16]
     });
-  } else {
-    // SDK 로드되지 않은 상태면 fallback UI 유지
-    console.log("Kakao Maps SDK not loaded. Showing fallback UI.");
-  }
-}
 
-function createDefaultMarker(map, latLng) {
-  const marker = new kakao.maps.Marker({
-    map: map,
-    position: latLng
-  });
-  
-  const infowindow = new kakao.maps.InfoWindow({
-    content: '<div style="padding:8px 12px;font-size:12px;font-weight:700;color:#0f172a;text-align:center;min-width:180px;border-radius:8px;">🏠 숙소<br><span style="font-size:11px;font-weight:500;color:#64748b;display:inline-block;margin-top:2px;">수송제일오투그란데 306동</span></div>'
-  });
-  infowindow.open(map, marker);
-  
-  kakao.maps.event.addListener(marker, 'click', function() {
-    window.open("https://map.kakao.com/?urlX=435165.0000030022&urlY=684921.9999999995&urlLevel=3&itemId=26707549&q=%EA%B5%B0%EC%82%B0%EC%88%98%EC%86%A1%EC%A0%9C%EC%9D%BC%EC%98%A4%ED%88%AC%EA%B7%B8%EB%9E%80%EB%8D%B01%EB%8B%A8%EC%A7%80%EC%95%84%ED%8C%8C%ED%8A%B8%20306%EB%8F%99&srcId=26707549&map_type=TYPE_MAP", "_blank", "noopener,noreferrer");
-  });
-}
+    const marker = L.marker([pos.lat, pos.lng], { icon: customIcon }).addTo(map);
+    
+    const popupContent = `
+      <div style="font-family: inherit; min-width: 180px;">
+        <strong style="font-size: 13px; color: var(--ink); display: block; margin-bottom: 4px;">${pos.title}</strong>
+        <span style="font-size: 11px; color: var(--muted); display: block; line-height: 1.3;">${pos.desc}</span>
+      </div>
+    `;
+    marker.bindPopup(popupContent);
 
-// 편의시설 그림지도 상호작용 (SVG 마커 <-> HTML 카드 연동)
-document.addEventListener('DOMContentLoaded', () => {
-  const facilityItems = document.querySelectorAll('[data-facility-id]');
-  
-  if (facilityItems.length === 0) return;
+    if (pos.id) {
+      markers[pos.id] = marker;
 
-  facilityItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const facilityId = item.getAttribute('data-facility-id');
-      if (!facilityId || facilityId === 'lodging') return;
+      // Event: Clicking marker highlights sidebar card
+      marker.on('click', () => {
+        // Clear previous active states
+        document.querySelectorAll('.facility-card').forEach(el => el.classList.remove('is-active'));
+        document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('is-active'));
 
-      // 모든 마커와 카드의 active 상태 해제
-      facilityItems.forEach(el => el.classList.remove('is-active'));
+        // Highlight matching card
+        const card = document.querySelector(`.facility-card[data-facility-id="${pos.id}"]`);
+        if (card) {
+          card.classList.add('is-active');
+          if (window.innerWidth <= 960) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
 
-      // 클릭한 facility-id와 동일한 모든 요소(마커, 카드)에 active 상태 부여
-      const targets = document.querySelectorAll(`[data-facility-id="${facilityId}"]`);
-      targets.forEach(target => {
-        target.classList.add('is-active');
-        
-        // 만약 선택된 요소가 카드라면 스크롤 조정 (모바일 환경 등 고려)
-        if (target.classList.contains('facility-card') && window.innerWidth <= 960) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Highlight this marker visually
+        const markerDom = marker.getElement().querySelector('.custom-map-marker');
+        if (markerDom) {
+          markerDom.classList.add('is-active');
         }
       });
-    });
+    }
+  });
 
-    // 엔터키 접근성 지원
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        item.click();
+  // 5. Connect Sidebar Cards -> Map Markers
+  const facilityCards = document.querySelectorAll('.facility-card');
+  facilityCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const facilityId = card.getAttribute('data-facility-id');
+      if (!facilityId) return;
+
+      // Clear previous active states
+      facilityCards.forEach(el => el.classList.remove('is-active'));
+      document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('is-active'));
+
+      // Make clicked card active
+      card.classList.add('is-active');
+
+      // Animate map view to target marker and trigger popup
+      const targetMarker = markers[facilityId];
+      if (targetMarker) {
+        targetMarker.openPopup();
+        map.setView(targetMarker.getLatLng(), 16, { animate: true, duration: 0.6 });
+
+        // Highlight marker element
+        const markerDom = targetMarker.getElement().querySelector('.custom-map-marker');
+        if (markerDom) {
+          markerDom.classList.add('is-active');
+        }
       }
     });
   });
-});
-
+}
