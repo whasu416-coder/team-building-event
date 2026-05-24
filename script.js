@@ -51,7 +51,7 @@ function initGoogleLeafletMap() {
       lat: 35.9630521,
       lng: 126.7105447,
       title: "🛒 오투마트",
-      desc: "마트 · 식료품 및 생필품 구매 (도보 약 1~2분)",
+      desc: "마트 · 식료품 및 생필품 구매 (도보 약 2분)",
       no: "🛒",
       markerClass: "facility-marker-orange",
       id: "o2-mart"
@@ -60,7 +60,7 @@ function initGoogleLeafletMap() {
       lat: 35.9646700,
       lng: 126.7164061,
       title: "🛒 롯데마트 군산점",
-      desc: "대형마트 · 식음료 대량 구매 (도보 약 5~6분)",
+      desc: "대형마트 · 식음료 대량 구매 (도보 약 7분)",
       no: "🛒",
       markerClass: "facility-marker-yellow",
       id: "lotte-mart"
@@ -69,7 +69,7 @@ function initGoogleLeafletMap() {
       lat: 35.9637636,
       lng: 126.7161674,
       title: "🛍️ 다이소 군산점",
-      desc: "생활용품 · 소모품 및 행사 용품 (도보 약 4~5분)",
+      desc: "생활용품 · 소모품 및 행사 용품 (도보 약 6분)",
       no: "🛍️",
       markerClass: "facility-marker-green",
       id: "daiso"
@@ -78,7 +78,7 @@ function initGoogleLeafletMap() {
       lat: 35.9623637,
       lng: 126.7150938,
       title: "💊 수송우리약국",
-      desc: "약국 · 비상약 및 상비약 구매 (도보 약 3~4분)",
+      desc: "약국 · 비상약 및 상비약 구매 (도보 약 4분)",
       no: "💊",
       markerClass: "facility-marker-green",
       id: "pharmacy"
@@ -87,7 +87,7 @@ function initGoogleLeafletMap() {
       lat: 35.9626886,
       lng: 126.7145384,
       title: "🏪 이마트24 R군산참조은점",
-      desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 2~3분)",
+      desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 3분)",
       no: "🏪",
       markerClass: "facility-marker-brown",
       id: "emart24"
@@ -96,7 +96,7 @@ function initGoogleLeafletMap() {
       lat: 35.9642217,
       lng: 126.7105257,
       title: "🏧 신협ATM 군산팔마신협 수송지점",
-      desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 3~4분)",
+      desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 5분)",
       no: "🏧",
       markerClass: "facility-marker-magenta",
       id: "atm"
