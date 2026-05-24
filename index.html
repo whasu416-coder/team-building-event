@@ -773,65 +773,99 @@
       }
     }
 
-    /* Leaflet Custom Styles */
-    .custom-map-marker {
+    /* Leaflet Custom Teardrop Pin Styles */
+    .custom-leaflet-icon-container {
+      background: transparent;
+      border: none;
+    }
+    
+    .custom-map-pin {
+      position: relative;
+      width: 36px;
+      height: 44px;
+      transform-origin: bottom center;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Oval shadow under the pin tip */
+    .pin-shadow {
+      position: absolute;
+      bottom: 0px;
+      left: 11px;
+      width: 14px;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      filter: blur(1px);
+      z-index: 1;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    
+    /* The teardrop pin shape */
+    .pin-body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 2px solid #ffffff;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      transition: border-color 0.25s ease, filter 0.25s ease;
+    }
+    
+    /* Upright Icon inside the pin */
+    .pin-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
-      font-family: inherit;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      border: 2px solid #ffffff;
-      color: #ffffff;
-      width: 100%;
-      height: 100%;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-size: 17px;
+      z-index: 3;
     }
-    .custom-map-marker.lodging-marker {
-      background: #8e44ad;
-      font-size: 14px;
-    }
-    .custom-map-marker.facility-marker-purple {
-      background: #8e44ad;
-      font-size: 13px;
-    }
-    .custom-map-marker.facility-marker-orange {
-      background: #e67e22;
-      font-size: 13px;
-    }
-    .custom-map-marker.facility-marker-yellow {
-      background: #f1c40f;
-      color: #0b1b3d;
-      font-size: 13px;
-    }
-    .custom-map-marker.facility-marker-green {
-      background: #27ae60;
-      font-size: 13px;
-    }
-    .custom-map-marker.facility-marker-brown {
-      background: #a04000;
-      font-size: 13px;
-    }
-    .custom-map-marker.facility-marker-magenta {
-      background: #e91e63;
-      font-size: 13px;
-    }
-    .custom-map-marker:hover, 
-    .custom-map-marker.is-active {
-      transform: scale(1.25) translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-      filter: brightness(1.1);
-      border-color: #ffe699;
+    
+    /* Color variations matching premium Naver Map scheme */
+    .pin-color-purple { background: #9b59b6; }
+    .pin-color-orange { background: #f39c12; }
+    .pin-color-brown { background: #d35400; }
+    .pin-color-red { background: #ff5252; }
+    .pin-color-blue { background: #3498db; }
+    .pin-color-green { background: #2ecc71; }
+    .pin-color-yellow { background: #f1c40f; }
+    
+    /* Hover and Active State Animations */
+    .custom-map-pin:hover,
+    .custom-map-pin.is-active {
+      transform: translateY(-6px);
       z-index: 99999 !important;
     }
+    
+    .custom-map-pin:hover .pin-shadow,
+    .custom-map-pin.is-active .pin-shadow {
+      transform: scale(0.7);
+      background: rgba(0, 0, 0, 0.15);
+    }
+    
+    .custom-map-pin:hover .pin-body,
+    .custom-map-pin.is-active .pin-body {
+      border-color: #ffe699;
+      filter: brightness(1.08);
+    }
+    
     /* Badge specific borders and text colors */
-    .facility-no-purple { border: 2px solid #8e44ad; color: #8e44ad; }
-    .facility-no-orange { border: 2px solid #e67e22; color: #e67e22; }
+    .facility-no-purple { border: 2px solid #9b59b6; color: #9b59b6; }
+    .facility-no-orange { border: 2px solid #f39c12; color: #f39c12; }
     .facility-no-yellow { border: 2px solid #f1c40f; color: #d4ac0d; }
-    .facility-no-green { border: 2px solid #27ae60; color: #27ae60; }
-    .facility-no-brown { border: 2px solid #a04000; color: #a04000; }
-    .facility-no-magenta { border: 2px solid #e91e63; color: #e91e63; }
+    .facility-no-green { border: 2px solid #2ecc71; color: #2ecc71; }
+    .facility-no-brown { border: 2px solid #d35400; color: #d35400; }
+    .facility-no-blue { border: 2px solid #3498db; color: #3498db; }
+    .facility-no-red { border: 2px solid #ff5252; color: #ff5252; }
 
     /* Customize leaflet popup */
     .leaflet-popup-content-wrapper {
@@ -1188,7 +1222,7 @@
 
           <article class="facility-card" data-facility-id="pharmacy-raon">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-green">💊</span>
+              <span class="facility-no facility-no-red">💊</span>
               <div>
                 <h3>라온약국</h3>
                 <p>상비약 및 처방조제 의약품</p>
@@ -1202,7 +1236,7 @@
 
           <article class="facility-card" data-facility-id="atm">
             <div class="facility-card-head">
-              <span class="facility-no facility-no-magenta">🏧</span>
+              <span class="facility-no facility-no-blue">🏧</span>
               <div>
                 <h3>군산팔마신협 ATM</h3>
                 <p>현금 입출금 및 송금 서비스</p>
@@ -1224,20 +1258,6 @@
             </div>
             <dl class="facility-meta">
               <div><dt>분류</dt><dd>생활용품</dd></div>
-              <div><dt>도보</dt><dd>약 7분</dd></div>
-            </dl>
-          </article>
-
-          <article class="facility-card" data-facility-id="pharmacy-neulpureum">
-            <div class="facility-card-head">
-              <span class="facility-no facility-no-green">💊</span>
-              <div>
-                <h3>늘푸름약국</h3>
-                <p>상비약 및 처방조제 의약품</p>
-              </div>
-            </div>
-            <dl class="facility-meta">
-              <div><dt>분류</dt><dd>약국</dd></div>
               <div><dt>도보</dt><dd>약 7분</dd></div>
             </dl>
           </article>
@@ -1460,6 +1480,6 @@
 
   <!-- Leaflet.js Script for Interactive Map -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="./script.js?v=7"></script>
+  <script src="./script.js?v=8"></script>
 </body>
 </html>

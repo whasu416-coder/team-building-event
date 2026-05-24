@@ -36,7 +36,7 @@ function initGoogleLeafletMap() {
   const mapContainer = document.getElementById('leaflet-map');
   if (!mapContainer) return;
 
-  // 1. Precise real-world coordinates extracted from "제목없는 지도.kmz" with descriptive emojis
+  // 1. Precise real-world coordinates with descriptive emojis and premium Naver-like colors
   const positions = {
     lodging: {
       lat: 35.9629379,
@@ -44,7 +44,7 @@ function initGoogleLeafletMap() {
       title: "🏠 군산수송제일오투그란데1단지 306동",
       desc: "단합대회 숙소 (도보 출발점)",
       no: "🏠",
-      markerClass: "lodging-marker",
+      markerClass: "pin-color-purple",
       id: "lodging"
     },
     o2Mart: {
@@ -53,7 +53,7 @@ function initGoogleLeafletMap() {
       title: "🛒 오투마트",
       desc: "마트 · 식료품 및 생필품 구매 (도보 약 3분)",
       no: "🛒",
-      markerClass: "facility-marker-orange",
+      markerClass: "pin-color-orange",
       id: "o2-mart"
     },
     lotteMart: {
@@ -62,7 +62,7 @@ function initGoogleLeafletMap() {
       title: "🛒 롯데마트 군산점",
       desc: "대형마트 · 식음료 대량 구매 (도보 약 9분)",
       no: "🛒",
-      markerClass: "facility-marker-yellow",
+      markerClass: "pin-color-yellow",
       id: "lotte-mart"
     },
     daiso: {
@@ -71,7 +71,7 @@ function initGoogleLeafletMap() {
       title: "🛍️ 다이소 군산점",
       desc: "생활용품 · 소모품 및 행사 용품 (도보 약 7분)",
       no: "🛍️",
-      markerClass: "facility-marker-green",
+      markerClass: "pin-color-green",
       id: "daiso"
     },
     pharmacyRaon: {
@@ -80,17 +80,8 @@ function initGoogleLeafletMap() {
       title: "💊 라온약국",
       desc: "약국 · 상비약 및 처방조제 의약품 (도보 약 5분)",
       no: "💊",
-      markerClass: "facility-marker-green",
+      markerClass: "pin-color-red",
       id: "pharmacy-raon"
-    },
-    pharmacyNeulpureum: {
-      lat: 35.962500,
-      lng: 126.717100,
-      title: "💊 늘푸름약국",
-      desc: "약국 · 상비약 및 처방조제 의약품 (도보 약 7분)",
-      no: "💊",
-      markerClass: "facility-marker-green",
-      id: "pharmacy-neulpureum"
     },
     emart24: {
       lat: 35.9626886,
@@ -98,7 +89,7 @@ function initGoogleLeafletMap() {
       title: "🏪 이마트24 R군산참조은점",
       desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 4분)",
       no: "🏪",
-      markerClass: "facility-marker-brown",
+      markerClass: "pin-color-brown",
       id: "emart24"
     },
     atm: {
@@ -107,7 +98,7 @@ function initGoogleLeafletMap() {
       title: "🏧 신협ATM 군산팔마신협 수송지점",
       desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 5분)",
       no: "🏧",
-      markerClass: "facility-marker-magenta",
+      markerClass: "pin-color-blue",
       id: "atm"
     }
   };
@@ -140,13 +131,19 @@ function initGoogleLeafletMap() {
     const pos = positions[key];
     markerPoints.push([pos.lat, pos.lng]);
     
-    // Custom DIV icon matching the Google My Maps screenshot pin colors
+    // Custom DIV icon matching the premium Naver Maps style pin shape
     const customIcon = L.divIcon({
-      html: `<div class="custom-map-marker ${pos.markerClass}">${pos.no}</div>`,
+      html: `
+        <div class="custom-map-pin">
+          <div class="pin-shadow"></div>
+          <div class="pin-body ${pos.markerClass}"></div>
+          <div class="pin-icon">${pos.no}</div>
+        </div>
+      `,
       className: 'custom-leaflet-icon-container',
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-      popupAnchor: [0, -16]
+      iconSize: [36, 44],
+      iconAnchor: [18, 44],
+      popupAnchor: [0, -40]
     });
 
     const marker = L.marker([pos.lat, pos.lng], { icon: customIcon }).addTo(map);
@@ -166,7 +163,7 @@ function initGoogleLeafletMap() {
       marker.on('click', () => {
         // Clear previous active states
         document.querySelectorAll('.facility-card').forEach(el => el.classList.remove('is-active'));
-        document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('is-active'));
+        document.querySelectorAll('.custom-map-pin').forEach(el => el.classList.remove('is-active'));
 
         // Highlight matching card
         const card = document.querySelector(`.facility-card[data-facility-id="${pos.id}"]`);
@@ -178,7 +175,7 @@ function initGoogleLeafletMap() {
         }
 
         // Highlight this marker visually
-        const markerDom = marker.getElement().querySelector('.custom-map-marker');
+        const markerDom = marker.getElement().querySelector('.custom-map-pin');
         if (markerDom) {
           markerDom.classList.add('is-active');
         }
@@ -198,7 +195,7 @@ function initGoogleLeafletMap() {
 
       // Clear previous active states
       facilityCards.forEach(el => el.classList.remove('is-active'));
-      document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('is-active'));
+      document.querySelectorAll('.custom-map-pin').forEach(el => el.classList.remove('is-active'));
 
       // Make clicked card active
       card.classList.add('is-active');
@@ -210,7 +207,7 @@ function initGoogleLeafletMap() {
         map.setView(targetMarker.getLatLng(), 17, { animate: true, duration: 0.6 });
 
         // Highlight marker element
-        const markerDom = targetMarker.getElement().querySelector('.custom-map-marker');
+        const markerDom = targetMarker.getElement().querySelector('.custom-map-pin');
         if (markerDom) {
           markerDom.classList.add('is-active');
         }
