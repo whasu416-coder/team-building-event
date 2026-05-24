@@ -886,6 +886,91 @@
       box-shadow: none;
     }
 
+    /* Step-by-step timing panel for contacting general manager */
+    .timing-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .timing-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 12px;
+      background: #ffffff;
+      border: 1px solid #ffd3d3;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(197, 42, 42, 0.04);
+      position: relative;
+    }
+    .timing-step:not(:last-child)::after {
+      content: "➔";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #ffb3b3;
+      z-index: 10;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #c92a2a;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .step-text strong {
+      display: block;
+      font-size: 14px;
+      color: #1a202c;
+      font-weight: 850;
+      margin-bottom: 6px;
+    }
+    .step-text span {
+      display: block;
+      font-size: 11px;
+      color: #718096;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 960px) {
+      .timing-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .timing-step {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        padding: 14px 16px;
+      }
+      .timing-step:not(:last-child)::after {
+        content: "▼";
+        right: 50%;
+        bottom: -12px;
+        top: auto;
+        transform: translateX(50%);
+      }
+      .step-num {
+        margin-bottom: 0;
+        margin-right: 14px;
+        flex-shrink: 0;
+      }
+      .step-text strong {
+        margin-bottom: 2px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1025,6 +1110,53 @@
           </div>
         </article>
       </div>
+
+      <!-- 총 담당자 연락 필수 시점 안내 -->
+      <article class="panel contact-timings-panel" style="margin-top: 24px; padding: 24px; border-color: #ffd3d3; background: linear-gradient(180deg, #fffefe, #fff5f5);">
+        <h3 style="margin: 0 0 12px; color: #c92a2a; font-size: 19px; font-weight: 950; display: flex; align-items: center; gap: 8px;">
+          <svg class="icon" style="color: #c92a2a; width: 22px; height: 22px;"><use href="#i-phone"/></svg>총 담당자 연락 필수 시점 (5대 연락 수칙)
+        </h3>
+        <p style="margin: 0 0 18px; font-size: 13.5px; color: #5c677d; font-weight: 700;">
+          조별 안전을 확보하고 원활한 행사 진행을 위해 아래의 5가지 시점에는 반드시 총 담당자에게 이상무 여부를 연락하여 주십시오.
+        </p>
+        <div class="timing-steps-grid">
+          <div class="timing-step">
+            <span class="step-num">1</span>
+            <div class="step-text">
+              <strong>출발할 때</strong>
+              <span>회사 또는 조별 집결지에서 군산으로 출발 시</span>
+            </div>
+          </div>
+          <div class="timing-step">
+            <span class="step-num">2</span>
+            <div class="step-text">
+              <strong>숙소 도착해서</strong>
+              <span>군산 숙소(오투그란데) 도착 및 체크인 완료 시</span>
+            </div>
+          </div>
+          <div class="timing-step">
+            <span class="step-num">3</span>
+            <div class="step-text">
+              <strong>2일차 기상해서</strong>
+              <span>2일차 아침 기상 직후 조별 인원 이상무 보고 시</span>
+            </div>
+          </div>
+          <div class="timing-step">
+            <span class="step-num">4</span>
+            <div class="step-text">
+              <strong>2일차 숙소 출발할 때</strong>
+              <span>2일차 숙소 정리 완료 후 복귀 출발 시</span>
+            </div>
+          </div>
+          <div class="timing-step">
+            <span class="step-num">5</span>
+            <div class="step-text">
+              <strong>2일차 도착 및 해산 시</strong>
+              <span>각 조원 안전 귀가 완료 및 최종 해산 시</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </section>
 
     <div class="container content-grid">
@@ -1483,6 +1615,6 @@
 
   <!-- Leaflet.js Script for Interactive Map -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="./script.js?v=10"></script>
+  <script src="./script.js?v=11"></script>
 </body>
 </html>
