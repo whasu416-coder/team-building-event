@@ -28,19 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize Leaflet Map with multiple markers
-  initLeafletMap();
+  // Initialize Map with Google Maps tiles and correct coordinates
+  initGoogleLeafletMap();
 });
 
-function initLeafletMap() {
+function initGoogleLeafletMap() {
   const mapContainer = document.getElementById('leaflet-map');
   if (!mapContainer) return;
 
-  // 1. Coordinates and info matching the Google My Maps layer screenshot
+  // 1. Precise real-world coordinates matching Google My Maps layer screenshot
   const positions = {
     lodging: {
-      lat: 35.96275,
-      lng: 126.71175,
+      lat: 35.961021,
+      lng: 126.711833,
       title: "🏠 군산수송제일오투그란데1단지 306동",
       desc: "단합대회 숙소 (도보 출발점)",
       no: "🏠",
@@ -48,8 +48,8 @@ function initLeafletMap() {
       id: "lodging"
     },
     o2Mart: {
-      lat: 35.96270,
-      lng: 126.71070,
+      lat: 35.961000,
+      lng: 126.710700,
       title: "1️⃣ 오투마트",
       desc: "마트 · 식료품 및 생필품 구매 (도보 1분 이내)",
       no: "1",
@@ -84,31 +84,29 @@ function initLeafletMap() {
       id: "pharmacy"
     },
     emart24: {
-      lat: 35.96150,
-      lng: 126.71260,
+      lat: 35.955562,
+      lng: 126.713296,
       title: "5️⃣ 이마트24 R군산참조은점",
-      desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 2~3분)",
+      desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 6~8분)",
       no: "5",
       markerClass: "facility-marker-brown",
       id: "emart24"
     },
     atm: {
-      lat: 35.96145,
-      lng: 126.71285,
+      lat: 35.955487,
+      lng: 126.711833,
       title: "6️⃣ 신협ATM 군산월명신협 수송지점",
-      desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 2~3분)",
+      desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 6~8분)",
       no: "6",
       markerClass: "facility-marker-magenta",
       id: "atm"
     }
   };
 
-  // 2. Initialize Leaflet Map (Centered on bounding box midpoint)
-  const centerLat = 35.9631;
-  const centerLng = 126.7135;
+  // 2. Initialize Leaflet Map (bounds will fit markers automatically)
   const map = L.map('leaflet-map', {
-    scrollWheelZoom: false // Prevent map scroll from hijacking page scroll
-  }).setView([centerLat, centerLng], 16);
+    scrollWheelZoom: false
+  });
 
   // Enable scroll zoom on map interaction
   map.on('click', () => {
@@ -118,18 +116,20 @@ function initLeafletMap() {
     map.scrollWheelZoom.disable();
   });
 
-  // 3. Add Premium CartoDB Voyager Tile Layer
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 20
+  // 3. Add Real Google Maps Tile Layer (Roadmap style, no API key needed)
+  L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; <a href="https://maps.google.com" target="_blank">Google Maps</a>'
   }).addTo(map);
 
   const markers = {};
+  const markerPoints = [];
 
   // 4. Create markers and add to map
   Object.keys(positions).forEach(key => {
     const pos = positions[key];
+    markerPoints.push([pos.lat, pos.lng]);
     
     // Custom DIV icon matching the Google My Maps screenshot pin colors
     const customIcon = L.divIcon({
@@ -177,7 +177,10 @@ function initLeafletMap() {
     }
   });
 
-  // 5. Connect Sidebar Cards -> Map Markers
+  // 5. Fit map bounds to show all markers nicely
+  map.fitBounds(markerPoints, { padding: [50, 50] });
+
+  // 6. Connect Sidebar Cards -> Map Markers
   const facilityCards = document.querySelectorAll('.facility-card');
   facilityCards.forEach(card => {
     card.addEventListener('click', () => {
