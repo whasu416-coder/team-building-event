@@ -36,7 +36,7 @@ function initGoogleLeafletMap() {
   const mapContainer = document.getElementById('leaflet-map');
   if (!mapContainer) return;
 
-  // 1. Precise real-world coordinates extracted from "제목없는 지도.kmz"
+  // 1. Precise real-world coordinates extracted from "제목없는 지도.kmz" with descriptive emojis
   const positions = {
     lodging: {
       lat: 35.9629379,
@@ -50,54 +50,54 @@ function initGoogleLeafletMap() {
     o2Mart: {
       lat: 35.9630521,
       lng: 126.7105447,
-      title: "1️⃣ 오투마트",
+      title: "🛒 오투마트",
       desc: "마트 · 식료품 및 생필품 구매 (도보 약 1~2분)",
-      no: "1",
+      no: "🛒",
       markerClass: "facility-marker-orange",
       id: "o2-mart"
     },
     lotteMart: {
       lat: 35.9646700,
       lng: 126.7164061,
-      title: "2️⃣ 롯데마트 군산점",
+      title: "🛒 롯데마트 군산점",
       desc: "대형마트 · 식음료 대량 구매 (도보 약 5~6분)",
-      no: "2",
+      no: "🛒",
       markerClass: "facility-marker-yellow",
       id: "lotte-mart"
     },
     daiso: {
       lat: 35.9637636,
       lng: 126.7161674,
-      title: "3️⃣ 다이소 군산점",
+      title: "🛍️ 다이소 군산점",
       desc: "생활용품 · 소모품 및 행사 용품 (도보 약 4~5분)",
-      no: "3",
+      no: "🛍️",
       markerClass: "facility-marker-green",
       id: "daiso"
     },
     pharmacy: {
       lat: 35.9623637,
       lng: 126.7150938,
-      title: "4️⃣ 수송우리약국",
+      title: "💊 수송우리약국",
       desc: "약국 · 비상약 및 상비약 구매 (도보 약 3~4분)",
-      no: "4",
+      no: "💊",
       markerClass: "facility-marker-green",
       id: "pharmacy"
     },
     emart24: {
       lat: 35.9626886,
       lng: 126.7145384,
-      title: "5️⃣ 이마트24 R군산참조은점",
+      title: "🏪 이마트24 R군산참조은점",
       desc: "편의점 · 24시간 간단한 간식 및 주류 (도보 약 2~3분)",
-      no: "5",
+      no: "🏪",
       markerClass: "facility-marker-brown",
       id: "emart24"
     },
     atm: {
       lat: 35.9642217,
       lng: 126.7105257,
-      title: "6️⃣ 신협ATM 군산팔마신협 수송지점",
+      title: "🏧 신협ATM 군산팔마신협 수송지점",
       desc: "ATM · 현금 입출금 및 송금 서비스 (도보 약 3~4분)",
-      no: "6",
+      no: "🏧",
       markerClass: "facility-marker-magenta",
       id: "atm"
     }
