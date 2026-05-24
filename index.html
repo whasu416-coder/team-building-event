@@ -981,66 +981,44 @@
       display: none; /* Hide on desktop */
       align-items: center;
       gap: 8px;
-      padding: 6px; /* Sleeker, tight padding */
+      padding: 6px 8px;
       border-radius: 999px;
-      
-      /* Premium Glassmorphism */
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.65));
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      
-      /* Soft multi-layered ambient shadows with blue reflection */
-      box-shadow: 
-        0 4px 20px rgba(37, 99, 215, 0.05), 
-        0 10px 35px rgba(11, 27, 61, 0.1),
-        inset 0 1px 2px rgba(255, 255, 255, 0.6);
-      
-      /* Smooth entrance animation */
-      animation: floatBarFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    
-    @keyframes floatBarFadeUp {
-      from {
-        opacity: 0;
-        transform: translate(-50%, 15px);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-      }
+      background: rgba(255, 255, 255, 0.85); /* Semitransparent white */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(203, 218, 244, 0.6);
+      box-shadow: 0 6px 20px rgba(11, 27, 61, 0.12);
     }
     
     .floating-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 18px; /* Slightly wider padding for premium spacing */
+      padding: 8px 16px; /* Optimized padding for bottom action buttons */
       border-radius: 999px;
-      font-size: 13px; /* Slightly larger crisp text */
+      font-size: 12.5px;
       font-weight: 800;
       text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.2s ease, opacity 0.2s ease;
       line-height: 1.2;
-      letter-spacing: -0.3px;
     }
     
     .floating-btn:active {
-      transform: scale(0.96);
-      opacity: 0.95;
+      transform: scale(0.95);
+      opacity: 0.9;
     }
     
     .floating-btn-schedule {
-      background: linear-gradient(135deg, #2563d8, #1d4ed8); /* Soft blue gradient */
+      background: #2563d8; /* Main Blue */
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(37, 99, 215, 0.25);
+      box-shadow: 0 4px 12px rgba(37, 99, 215, 0.2);
     }
     
     .floating-btn-emergency {
       background: #ffe3e3; /* Light red background */
-      color: #e03131; /* Vibrant premium red text */
-      border: 1px solid rgba(224, 49, 49, 0.15);
-      box-shadow: 0 4px 12px rgba(224, 49, 49, 0.06);
+      color: #c92a2a; /* Red text */
+      border: 1px solid rgba(199, 37, 37, 0.15);
+      box-shadow: 0 4px 12px rgba(199, 37, 37, 0.08);
     }
     
     @media (max-width: 768px) {
