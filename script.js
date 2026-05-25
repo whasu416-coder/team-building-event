@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Password Protection Logic
-  const PAGE_PASSWORD = '1234'; // 변경 가능한 기본 비밀번호
+  const PAGE_PASSWORD = '7713'; // 변경 가능한 기본 비밀번호
   
   const passwordOverlay = document.getElementById('password-overlay');
   const appContent = document.getElementById('app-content');
