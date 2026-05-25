@@ -28,8 +28,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize Map with Google Maps tiles and correct coordinates from user KML
-  initGoogleLeafletMap();
+  // Password Protection Logic
+  const PAGE_PASSWORD = '1234'; // 변경 가능한 기본 비밀번호
+  
+  const passwordOverlay = document.getElementById('password-overlay');
+  const appContent = document.getElementById('app-content');
+  const passwordForm = document.getElementById('password-form');
+  const passwordInput = document.getElementById('page-password');
+  const passwordError = document.getElementById('password-error');
+
+  function revealPage() {
+    if (passwordOverlay) {
+      passwordOverlay.style.opacity = '0';
+      passwordOverlay.style.visibility = 'hidden';
+      // Wait for fadeout animation transition before hiding from layout
+      setTimeout(() => {
+        passwordOverlay.style.display = 'none';
+      }, 400);
+    }
+    if (appContent) {
+      appContent.style.display = 'block';
+    }
+    
+    // Initialize Map only after revealing the content, to avoid Leaflet sizing bugs
+    initGoogleLeafletMap();
+  }
+
+  // Check if session authentication exists
+  if (sessionStorage.getItem('page_auth') === 'true') {
+    revealPage();
+  } else {
+    if (appContent) appContent.style.display = 'none';
+    if (passwordOverlay) passwordOverlay.style.display = 'flex';
+  }
+
+  // Handle password form submission
+  if (passwordForm) {
+    passwordForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passwordInput && passwordInput.value === PAGE_PASSWORD) {
+        sessionStorage.setItem('page_auth', 'true');
+        revealPage();
+      } else {
+        if (passwordError) passwordError.style.display = 'block';
+        if (passwordInput) {
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+        
+        // Shake animation effect on the card
+        const card = document.querySelector('.password-card');
+        if (card) {
+          card.style.animation = 'none';
+          card.offsetHeight; /* trigger reflow */
+          card.style.animation = 'shake 0.4s ease';
+        }
+      }
+    });
+  }
 });
 
 function initGoogleLeafletMap() {
